@@ -1,4 +1,4 @@
-def contaZero(S, k):
+def contaZeroN3(S, k):
     n = len(S)
     x_zeros = [0] * n
     y_zeros = [0] * n
@@ -39,15 +39,13 @@ def contaZero(S, k):
             if sum_x + sum_y <= k:
                 max_zeros = max(max_zeros, x_zeros[x-1] + y_zeros[y-1])
 
-
-
     return S, x_zeros, y_zeros, max_zeros
 
 
 S = [1, 0, 2, 8, 0, 5, 1, 6, 0, 0, 3]
 k = 8
 
-r = contaZero(S, k)
+r = contaZeroN3(S, k)
 print("S: " + str(r[0]))
 print("X: " + str(r[1]))
 print("Y: " + str(r[2]))
