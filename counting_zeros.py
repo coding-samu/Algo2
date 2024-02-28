@@ -1,4 +1,4 @@
-def contaZeroN3(S, k):
+def contaZeroN2(S, k):
     n = len(S)
     x_zeros = [0] * n
     y_zeros = [0] * n
@@ -45,7 +45,7 @@ def contaZeroN3(S, k):
 S = [1, 0, 2, 8, 0, 5, 1, 6, 0, 0, 3]
 k = 8
 
-r = contaZeroN3(S, k)
+r = contaZeroN2(S, k)
 print("S: " + str(r[0]))
 print("X: " + str(r[1]))
 print("Y: " + str(r[2]))
