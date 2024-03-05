@@ -2,10 +2,20 @@
 
 def count_triplets_with_sum_k(arr, k):
     """
-    Conta le triple di elementi nella lista 'arr' che hanno come somma 'k'.
-    Restituisce il numero totale di triple.
+    Counts the number of triplets in a given list that sum up to a given value.
+
+    Args:
+        arr (list): The input list of integers.
+        k (int): The target sum.
+
+    Returns:
+        tuple: A tuple containing the count of triplets and a list of tuples representing the triplets.
+
+    Example:
+        >>> count_triplets_with_sum_k([1, 2, 3, 4, 5], 6)
+        (1, [(1, 2, 3)])
     """
-    arr.sort()  # Ordina la lista in modo crescente
+    arr.sort()  # Sort the list in ascending order
     n = len(arr)
     count = 0
     tupleList = []
