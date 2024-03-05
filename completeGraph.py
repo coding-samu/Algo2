@@ -29,8 +29,31 @@ def orienta_grafo_completo(G: list[list[int]]) -> list[list[int]]:
     return archi_orientati
 
 
+def orient_all(u:int, G: list[list[int]], V: list[int]) -> list[list[int]]:
+    V[u] = 1
+    for v in G[u]:
+        if V[v] == 0:
+            if u in G[v]:
+                G[u].remove(v)
+                G = orient_all(v, G, V)
+            else:
+                G = orient_all(v, G, V)
+    return G
+    
+
 # Esempio
-G = generate_complete_graph(4)
+#G = generate_complete_graph(4)
+#print(G)
+#G = orienta_grafo_completo(G)
+#print(G)
+
+
+# Esempio
+G = [[1],
+     [3],
+     [1,4],
+     [4],
+     [2,3],
+     [4]]
 print(G)
-G = orienta_grafo_completo(G)
-print(G)
+print(orient_all(0, G, [0]*6))
