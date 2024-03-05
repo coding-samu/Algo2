@@ -1,4 +1,13 @@
 def generate_complete_graph(n: int) -> list[list[int]]:
+    """
+    Generates a complete graph with 'n' nodes.
+
+    Args:
+        n (int): The number of nodes in the graph.
+
+    Returns:
+        list[list[int]]: The adjacency list representation of the complete graph.
+    """
     G: list[list[int]] = [[] for _ in range(n)]
     for i in range(n):
         for j in range(n):
@@ -13,6 +22,15 @@ G rappresentato tramite liste di adiacenza in O(m) ne orienta gli archi
 producendo un grafo diretto aciclico
 """
 def orienta_grafo_completo(G: list[list[int]]) -> list[list[int]]:
+    """
+    Orient the edges of a complete undirected graph.
+
+    Args:
+        G (list[list[int]]): The adjacency list representation of the graph.
+
+    Returns:
+        list[list[int]]: The adjacency list representation of the graph with oriented edges.
+    """
     n = len(G)  # Numero di nodi
     archi_orientati = [[] for _ in range(len(G))]  # Lista per memorizzare gli archi orientati
 
@@ -30,6 +48,17 @@ def orienta_grafo_completo(G: list[list[int]]) -> list[list[int]]:
 
 
 def orient_all(u:int, G: list[list[int]], V: list[int]) -> list[list[int]]:
+    """
+    Recursively orients all edges in the graph starting from node u.
+
+    Args:
+        u (int): The starting node.
+        G (list[list[int]]): The adjacency list representation of the graph.
+        V (list[int]): The visited nodes list.
+
+    Returns:
+        list[list[int]]: The updated adjacency list representation of the graph.
+    """
     V[u] = 1
     for v in G[u]:
         if V[v] == 0:
@@ -42,6 +71,17 @@ def orient_all(u:int, G: list[list[int]], V: list[int]) -> list[list[int]]:
 
 
 def conta_pozzi_da_nodo(u: int, G: list[list[int]], V: list[int]) -> int:
+    """
+    Counts the number of "pozzi" (i.e., nodes with no outgoing edges) starting from a given node in a graph.
+
+    Args:
+        u (int): The starting node.
+        G (list[list[int]]): The adjacency list representation of the graph.
+        V (list[int]): A list to keep track of visited nodes.
+
+    Returns:
+        int: The number of "pozzi" starting from the given node.
+    """
     V[u] = 1
     somma_pozzi = 0
     if len(G[u]) == 0:
