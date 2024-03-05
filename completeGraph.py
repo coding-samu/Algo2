@@ -30,7 +30,7 @@ def orienta_grafo_completo(G: list[list[int]]) -> list[list[int]]:
 
 
 # Esempio
-G = generate_complete_graph(3)
+G = generate_complete_graph(4)
 print(G)
 G = orienta_grafo_completo(G)
 print(G)
