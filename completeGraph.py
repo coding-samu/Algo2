@@ -19,10 +19,10 @@ def orienta_grafo_completo(G: list[list[int]]) -> list[list[int]]:
     # Iteriamo su tutte le coppie di nodi distinti
     for u in range(n):
         for v in range(u + 1, n):
-            # Orientiamo l'arco u → v se u è adiacente a v
+            # Orientiamo l'arco u -> v se u è adiacente a v
             if v in G[u]:
                 archi_orientati[u].append(v)
-            # Altrimenti, orientiamo l'arco v → u
+            # Altrimenti, orientiamo l'arco v -> u
             else:
                 archi_orientati[v].append(u)
 
@@ -30,7 +30,7 @@ def orienta_grafo_completo(G: list[list[int]]) -> list[list[int]]:
 
 
 # Esempio
-G = generate_complete_graph(5)
+G = generate_complete_graph(3)
 print(G)
 G = orienta_grafo_completo(G)
 print(G)
