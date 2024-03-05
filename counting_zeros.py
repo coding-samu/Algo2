@@ -1,4 +1,25 @@
 def contaZeroN2(S, k):
+    """
+    Counts the number of zeros in a given list 'S' and returns the maximum number of zeros
+    that can be obtained by splitting the list into two parts, such that the sum of the
+    elements in each part is less than or equal to 'k'.
+
+    Args:
+        S (list): The input list of integers.
+        k (int): The maximum sum allowed for each part.
+
+    Returns:
+        tuple: A tuple containing the input list 'S', the list 'x_zeros' which stores the
+        cumulative count of zeros from the left side of 'S', the list 'y_zeros' which stores
+        the cumulative count of zeros from the right side of 'S', and the maximum number of
+        zeros that can be obtained.
+
+    Example:
+        >>> S = [1, 0, 0, 1, 0, 1, 1, 0]
+        >>> k = 2
+        >>> contaZeroN2(S, k)
+        ([1, 0, 0, 1, 0, 1, 1, 0], [0, 1, 2, 2, 3, 3, 3, 4], [4, 3, 3, 2, 2, 1, 1, 0], 4)
+    """
     n = len(S)
     x_zeros = [0] * n
     y_zeros = [0] * n
