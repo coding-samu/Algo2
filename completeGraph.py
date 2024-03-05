@@ -39,7 +39,20 @@ def orient_all(u:int, G: list[list[int]], V: list[int]) -> list[list[int]]:
             else:
                 G = orient_all(v, G, V)
     return G
-    
+
+
+def conta_pozzi_da_nodo(u: int, G: list[list[int]], V: list[int]) -> int:
+    V[u] = 1
+    somma_pozzi = 0
+    if len(G[u]) == 0:
+        return 1
+    for i in G[u]:
+        if V[i] == 0:
+            somma_pozzi += conta_pozzi_da_nodo(i, G, V)
+    return somma_pozzi
+
+            
+
 
 # Esempio
 #G = generate_complete_graph(4)
@@ -49,11 +62,14 @@ def orient_all(u:int, G: list[list[int]], V: list[int]) -> list[list[int]]:
 
 
 # Esempio
-G = [[1],
-     [3],
-     [1,4],
-     [4],
-     [2,3],
-     [4]]
-print(G)
-print(orient_all(0, G, [0]*6))
+#G = [[1],
+#     [3],
+#     [1,4],
+#     [4],
+#     [2,3],
+#     [4]]
+#print(G)
+#print(orient_all(0, G, [0]*6))
+
+G = [[2,9],[0,2,5,7],[],[4,6],[10],[],[9],[8],[],[10],[3]]
+print(conta_pozzi_da_nodo(1, G, [0]*11))
