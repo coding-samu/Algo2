@@ -13,12 +13,6 @@ def contaZeroN2(S, k):
         cumulative count of zeros from the left side of 'S', the list 'y_zeros' which stores
         the cumulative count of zeros from the right side of 'S', and the maximum number of
         zeros that can be obtained.
-
-    Example:
-        >>> S = [1, 0, 0, 1, 0, 1, 1, 0]
-        >>> k = 2
-        >>> contaZeroN2(S, k)
-        ([1, 0, 0, 1, 0, 1, 1, 0], [0, 1, 2, 2, 3, 3, 3, 4], [4, 3, 3, 2, 2, 1, 1, 0], 4)
     """
     n = len(S)
     x_zeros = [0] * n
