@@ -153,6 +153,26 @@ def Padri(u, G):
     DFSr(u, G, P)
     return P
 
+def Cammino(u, P):
+    """
+    Returns the path from vertex u to the source vertex in a graph represented by the predecessor array P.
+
+    Parameters:
+    u (int): The vertex to find the path from.
+    P (list): The predecessor array representing the graph.
+
+    Returns:
+    list: The path from vertex u to the source vertex.
+    """
+    if P[u] == -1: return []
+    path = []
+    while P[u] != u:
+        path.append(u)
+        u = P[u]
+    path.append(u)
+    path.reverse()
+    return path
+
 # Esempio
 #G = generate_complete_graph(4)
 #print(G)
