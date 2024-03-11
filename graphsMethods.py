@@ -91,7 +91,46 @@ def conta_pozzi_da_nodo(u: int, G: list[list[int]], V: list[int]) -> int:
             somma_pozzi += conta_pozzi_da_nodo(i, G, V)
     return somma_pozzi
 
-            
+def DFSMatrix(u,M):
+    """
+    Performs a Depth-First Search (DFS) on a given matrix representation of a graph.
+
+    Parameters:
+    u (int): The starting vertex for the DFS.
+    M (list): The adjacency matrix representing the graph.
+
+    Returns:
+    list: A list of boolean values indicating whether each vertex was visited during the DFS.
+    """
+    def DFSr(u,M,visitati):
+        visitati[u] = True
+        for i in range(len(M)):
+            if M[u][i] and not visitati[i]:
+                DFSr(i,M,visitati)
+    visitati = [False]*len(M)
+    DFSr(u,M,visitati) 
+    return visitati
+
+def DFSList(u, G):
+    """
+    Performs a Depth-First Search (DFS) starting from a given vertex in a graph.
+
+    Parameters:
+    u (int): The starting vertex for the DFS.
+    G (list): The adjacency list representation of the graph.
+
+    Returns:
+    list: A list indicating which vertices have been visited during the DFS.
+    """
+    def DFSr(u, G, visitati):
+        visitati[u] = True
+        for i in G[u]:
+            if not visitati[i]:
+                DFSr(i, G, visitati)
+    visitati = [False] * len(G)
+    DFSr(u, G, visitati) 
+    return visitati
+
 
 
 # Esempio
