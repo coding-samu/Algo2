@@ -173,6 +173,21 @@ def Cammino(u, P):
     path.reverse()
     return path
 
+def CamminoRicorsivo(u, P):
+    """
+    Returns the recursive path from node u to the root node in a graph.
+
+    Args:
+        u (int): The starting node.
+        P (list): The list of parent nodes.
+
+    Returns:
+        list: The path from node u to the root node.
+    """
+    if P[u] == -1: return []
+    if P[u] == u: return [u]
+    return CamminoRicorsivo(P[u], P) + [u]
+
 # Esempio
 #G = generate_complete_graph(4)
 #print(G)
