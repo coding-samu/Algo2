@@ -131,7 +131,7 @@ def DFSList(u, G):
     DFSr(u, G, visitati) 
     return visitati
 
-def Padri(u, G):
+def padri(u, G):
     """
     Finds the parent nodes of each node in a graph using Depth-First Search (DFS).
 
@@ -153,7 +153,7 @@ def Padri(u, G):
     DFSr(u, G, P)
     return P
 
-def Cammino(u, P):
+def cammino(u, P):
     """
     Returns the path from vertex u to the source vertex in a graph represented by the predecessor array P.
 
@@ -173,7 +173,7 @@ def Cammino(u, P):
     path.reverse()
     return path
 
-def CamminoRicorsivo(u, P):
+def camminoRicorsivo(u, P):
     """
     Returns the recursive path from node u to the root node in a graph.
 
@@ -186,7 +186,7 @@ def CamminoRicorsivo(u, P):
     """
     if P[u] == -1: return []
     if P[u] == u: return [u]
-    return CamminoRicorsivo(P[u], P) + [u]
+    return camminoRicorsivo(P[u], P) + [u]
 
 
 def pozzo(M):
