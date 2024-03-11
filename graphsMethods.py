@@ -131,15 +131,26 @@ def DFSList(u, G):
     DFSr(u, G, visitati) 
     return visitati
 
-def Padri(u,G):
-    def DFSr(x,G,P):
+def Padri(u, G):
+    """
+    Finds the parent nodes of each node in a graph using Depth-First Search (DFS).
+
+    Args:
+        u (int): The starting node.
+        G (list): The adjacency list representation of the graph.
+
+    Returns:
+        list: A list containing the parent nodes of each node in the graph.
+    """
+    def DFSr(x, G, P):
         for y in G[x]:
             if P[y] == -1:
                 P[y] = x
-                DFSr(y,G,P)
-    P = [-1]*len(G)
+                DFSr(y, G, P)
+    
+    P = [-1] * len(G)
     P[u] = u
-    DFSr(u,G,P)
+    DFSr(u, G, P)
     return P
 
 # Esempio
