@@ -188,6 +188,35 @@ def CamminoRicorsivo(u, P):
     if P[u] == u: return [u]
     return CamminoRicorsivo(P[u], P) + [u]
 
+
+def pozzo(M):
+    """
+    Determines if a given graph represented by an adjacency matrix is a sink (pozzo) or not.
+
+    Args:
+        M (list): The adjacency matrix representing the graph.
+
+    Returns:
+        bool: True if the graph is a sink, False otherwise.
+    """
+    L = [x for x in range(len(M))]
+    while len(L) > 1:
+        a = L.pop()
+        b = L.pop()
+        if M[a][b]:
+            L.append(b)
+        else:
+            L.append(a)
+    x = L.pop()
+    for j in range(len(M)):
+        if M[x][j]:
+            return False
+    for i in range(len(M)):
+        if M[i][x] and i != x:
+            return False
+    return True
+
+
 # Esempio
 #G = generate_complete_graph(4)
 #print(G)
