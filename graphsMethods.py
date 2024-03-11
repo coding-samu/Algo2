@@ -216,6 +216,31 @@ def pozzo(M):
             return False
     return True
 
+def sortTopologico(G):
+    """
+    Performs a topological sort on a directed acyclic graph (DAG).
+
+    Args:
+        G (list): The adjacency list representation of the graph.
+
+    Returns:
+        list: The topologically sorted order of the vertices in the graph.
+
+    """
+    def DFSr(u, G, V, lista):
+        V[u] = 1
+        for v in G[u]:
+            if V[v] == 0:
+                DFSr(v, G, V, lista)
+        lista.append(u)
+
+    V = [0]*len(G)
+    lista = []
+    for i in range(len(G)):
+        if V[i] == 0:
+            DFSr(i, G, V, lista)
+    lista.reverse()
+    return lista
 
 # Esempio
 #G = generate_complete_graph(4)
@@ -234,5 +259,8 @@ def pozzo(M):
 #print(G)
 #print(orient_all(0, G, [0]*6))
 
-G = [[2,9],[0,2,5,7],[],[4,6],[10],[],[9],[8],[],[10],[3]]
-print(conta_pozzi_da_nodo(1, G, [0]*11))
+#G = [[2,9],[0,2,5,7],[],[4,6],[10],[],[9],[8],[],[10],[3]]
+#print(conta_pozzi_da_nodo(1, G, [0]*11))
+            
+#G = [[1,5,6],[2,6],[],[2,4,6],[5,6],[],[2,5]]
+#print(sortTopologico(G))
