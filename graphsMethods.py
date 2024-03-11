@@ -131,7 +131,16 @@ def DFSList(u, G):
     DFSr(u, G, visitati) 
     return visitati
 
-
+def Padri(u,G):
+    def DFSr(x,G,P):
+        for y in G[x]:
+            if P[y] == -1:
+                P[y] = x
+                DFSr(y,G,P)
+    P = [-1]*len(G)
+    P[u] = u
+    DFSr(u,G,P)
+    return P
 
 # Esempio
 #G = generate_complete_graph(4)
