@@ -242,6 +242,41 @@ def sortTopologico(G):
     lista.reverse()
     return lista
 
+def subtree(P,x):
+    # P = [3,4,3,5,3,4,5,1]
+    # x = 5
+    subtree = []
+    for i in range(len(P)):
+        if P[i] != -1:
+            path, is_sub = path_to_root(P, i, x)
+            if not is_sub:
+                for u in path:
+                    P[u] = -1
+    for i in range(len(P)):
+        if P[i] != -1:
+            subtree.append(i+1)
+    return subtree
+
+def path_to_root(P, u, x):
+    path = []
+    is_sub = False
+    path.append(u)
+    if u == x:
+        is_sub = True
+        return path, is_sub
+    while P[u] != u:
+        if P[u] == -1:
+            is_sub = False
+            break
+        path.append(P[u])
+        u = P[u]
+        if u == x: 
+            is_sub = True
+            break
+    return path, is_sub
+
+print(subtree([2,3,2,4,2,3,4,0],4))
+
 # Esempio
 #G = generate_complete_graph(4)
 #print(G)
