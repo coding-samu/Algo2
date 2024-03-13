@@ -131,7 +131,7 @@ def DFSList(u, G):
     DFSr(u, G, visitati) 
     return visitati
 
-def padri(u, G):
+def parent(u, G):
     """
     Finds the parent nodes of each node in a graph using Depth-First Search (DFS).
 
