@@ -310,6 +310,74 @@ def ordinamento_topologico_dfs(G: list[list[int]]) -> list[list[int]]:
     ST.reverse()
     return ST
 
+def verifica_ciclo_grafo_non_diretto_da_nodo(u:int, G: list[list[int]]) -> bool:
+    def DFSr(u, padre, G, visitati):
+        visitati[u] = 1
+        for v in G[u]:
+            if visitati[v] == 1:
+                if v != padre:
+                    return True
+            else:
+                if DFSr(v, u, G, visitati):
+                    return True
+        return False
+    
+    visitati = [0] * len(G)
+    return DFSr(u, u, G, visitati)
+
+def verifica_ciclo_grafo_non_diretto(G: list[list[int]]) -> bool:
+    def DFSr(u, padre, G, visitati):
+        visitati[u] = 1
+        for v in G[u]:
+            if visitati[v] == 1:
+                if v != padre:
+                    return True
+            else:
+                if DFSr(v, u, G, visitati):
+                    return True
+        return False
+    
+    visitati = [0] * len(G)
+
+    for u in range(len(G)):
+        if DFSr(u, u, G, visitati): return True
+    
+    return False
+
+def verifica_ciclo_grafo_diretto_da_nodo(u: int, G: list[list[int]]) -> bool:
+    def DFSr(u, G, visitati):
+        visitati[u] = 1
+        for v in G[u]:
+            if visitati[v] == 1:
+                return True
+            if visitati[v] == 0:
+                if DFSr(v, G, visitati):
+                    return True
+        visitati[u] = 2
+        return False
+    
+    visitati = [0] * len(G)
+    return DFSr(u, G, visitati)
+
+def verifica_ciclo_grafo_diretto_da_nodo(G: list[list[int]]) -> bool:
+    def DFSr(u, G, visitati):
+        visitati[u] = 1
+        for v in G[u]:
+            if visitati[v] == 1:
+                return True
+            if visitati[v] == 0:
+                if DFSr(v, G, visitati):
+                    return True
+        visitati[u] = 2
+        return False
+    
+    visitati = [0] * len(G)
+    
+    for u in range(len(G)):
+        if DFSr(u, G, visitati): return True
+
+    return False
+
 #print(ordinamento_topologico_dfs([[1,4,5],[2],[3],[4],[],[2],[2]]))
 
 # Esempio
