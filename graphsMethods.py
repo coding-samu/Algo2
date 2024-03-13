@@ -378,6 +378,68 @@ def verifica_ciclo_grafo_diretto_da_nodo(G: list[list[int]]) -> bool:
 
     return False
 
+
+"""
+Dato in input un grafo G rappresentato tramite liste di adiacenza, devo scorrerlo tramite DFS partendo dal nodo 0 e devo contare gli archi in avanti (ossia gli archi da un antenato a un discendente), gli archi all'indietro (ossia gli archi da un discendente a un antenato) e gli archi di attraversamento (cioè gli archi che vanno da destra verso sinistra).
+
+Per esempio, dato il grafo G = [[1,2],[3],[3],[4,5],[5],[6],[1]]
+L'output sarà (1,1,1)
+Arco in avanti: 3-5
+Arco all'indietro: 6-1
+Arco di attraversamento: 2-3
+"""
+def count_edges(G):
+    # Numero di nodi nel grafo
+    n = len(G)
+    
+    # Inizializzazione delle liste per tenere traccia delle visite e dei tempi di scoperta e completamento
+    visited = [False] * n  # Segna se un nodo è stato visitato durante la DFS
+    discovery = [0] * n    # Memorizza il tempo di scoperta di ciascun nodo
+    finish = [0] * n       # Memorizza il tempo di completamento di ciascun nodo
+    
+    # Utilizziamo una lista per tenere traccia del tempo corrente nella DFS
+    time = [0]
+    
+    # Contatori per gli archi in avanti, all'indietro e di attraversamento
+    forward = backward = cross = 0
+
+    # Funzione di ricerca in profondità (DFS)
+    def dfs(v):
+        nonlocal forward, backward, cross
+        
+        # Segna il nodo come visitato e registra il tempo di scoperta
+        visited[v] = True
+        discovery[v] = time[0]
+        time[0] += 1
+        
+        # Iterazione sui vicini del nodo corrente
+        for u in G[v]:
+            if not visited[u]:  # Se il vicino non è stato visitato, visitarlo
+                dfs(u)
+            elif discovery[v] < discovery[u]:  # Se l'arco è in avanti
+                forward += 1
+                print(f"forward: {v}-{u}")
+            elif finish[u] == 0:  # Se l'arco è all'indietro
+                backward += 1
+                print(f"backward: {v}-{u}")
+            else:  # Se l'arco è di attraversamento
+                cross += 1
+                print(f"cross: {v}-{u}")
+        
+        # Dopo aver esplorato tutti i vicini, registra il tempo di completamento
+        finish[v] = time[0]
+        time[0] += 1
+
+    # Avvia la DFS a partire dal nodo 0
+    dfs(0)
+    
+    # Restituisce il conteggio degli archi in avanti, all'indietro e di attraversamento
+    return forward, backward, cross
+
+
+G = [[1,2],[3],[3],[4,5],[5],[6],[1]]
+print(count_edges(G))  # Output: (1, 1, 1)
+
 #print(ordinamento_topologico_dfs([[1,4,5],[2],[3],[4],[],[2],[2]]))
 
 # Esempio
