@@ -275,7 +275,42 @@ def path_to_root(P, u, x):
             break
     return path, is_sub
 
-print(subtree([2,3,2,4,2,3,4,0],4))
+#print(subtree([2,3,2,4,2,3,4,0],4))
+
+def ordinamento_topologico(G: list[list[int]]) -> list[list[int]]:
+    gradoEnt = [0 for _ in G]
+    for u in G:
+        for v in G[u]:
+            gradoEnt[v] += 1
+    sorgenti = [u for u in range(len()) if gradoEnt[u] == 0]
+    ST = []
+    while sorgenti:
+        u = sorgenti.pop()
+        ST.append(u)
+        for v in G[u]:
+            gradoEnt[v] -= 1
+            if gradoEnt[v] == 0:
+                sorgenti.append(v)
+    if len(ST) == len(G):
+        return ST
+    return []
+
+def ordinamento_topologico_dfs(G: list[list[int]]) -> list[list[int]]:
+    def dfs(u, G, V, ST):
+        V[u] = 1
+        for v in G[u]:
+            if V[v] == 0:
+                dfs(v, G, V, ST)
+        ST.append(u)
+    V = [0 for _ in G]
+    ST = []
+    for u in range(len(G)):
+        if V[u] == 0:
+            dfs(u, G, V, ST)
+    ST.reverse()
+    return ST
+
+#print(ordinamento_topologico_dfs([[1,4,5],[2],[3],[4],[],[2],[2]]))
 
 # Esempio
 #G = generate_complete_graph(4)
