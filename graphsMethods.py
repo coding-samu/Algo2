@@ -436,9 +436,26 @@ def count_edges(G):
     # Restituisce il conteggio degli archi in avanti, all'indietro e di attraversamento
     return forward, backward, cross
 
+def find_path_all(u, G):
+    def dfs(u, parent, G, path, D, time):
+        path.append(u)
+        time[0] += 1
+        D[u] = time[0]
+        for v in G[u]:
+            if v != parent:
+                if D[v] == 0 or D[v] > D[u]:
+                    dfs(v, u, G, path, D, time)
+                    path.append(u)
+        return path
+    D = [0] * len(G)
+    time = [0]
+    path = []
+    return dfs(u, u, G, path, D, time)
+G = [[1,3,4],[0,2],[1,3,4],[0,2,4],[0,3,2]]
+print(find_path_all(0, G))
 
-G = [[1,2],[3],[3],[4,5],[5],[6],[1]]
-print(count_edges(G))  # Output: (1, 1, 1)
+#G = [[1,2],[3],[3],[4,5],[5],[6],[1]]
+#print(count_edges(G))  # Output: (1, 1, 1)
 
 #print(ordinamento_topologico_dfs([[1,4,5],[2],[3],[4],[],[2],[2]]))
 
