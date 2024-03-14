@@ -451,8 +451,32 @@ def find_path_all(u, G):
     time = [0]
     path = []
     return dfs(u, u, G, path, D, time)
-G = [[1,3,4],[0,2],[1,3,4],[0,2,4],[0,3,2]]
-print(find_path_all(0, G))
+
+def find_bridges(G):
+    def dfs(x, t, G, height, bridges):
+        from math import inf
+        height[x] = t
+        ret = inf
+        for y in G[x]:
+            if height[y] == -1:
+                a = dfs(y, t+1, G, height, bridges)
+                if t < a:
+                    bridges.append((x,y))
+                ret = min(ret, a)
+            elif height[y] != t-1:
+                ret = min(ret, height[y])
+        return ret
+    
+    height = [-1] * len(G)
+    bridges = []
+    dfs(0, 0, G, height, bridges)
+    return bridges
+
+G = [[3,4,5,8],[2,7],[1,6,7],[0,4,7],[0,3],[0,8],[2],[1,2,3],[0,5]]
+print(find_bridges(G))
+
+#G = [[1,3,4],[0,2],[1,3,4],[0,2,4],[0,3,2]]
+#print(find_path_all(0, G))
 
 #G = [[1,2],[3],[3],[4,5],[5],[6],[1]]
 #print(count_edges(G))  # Output: (1, 1, 1)
