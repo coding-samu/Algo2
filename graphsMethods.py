@@ -472,8 +472,25 @@ def find_bridges(G):
     dfs(0, 0, G, height, bridges)
     return bridges
 
+
+def delete_sequence(G):
+    def dfs(x, G, visited, sequence):
+        visited[x] = True
+        for y in G[x]:
+            if not visited[y]:
+                dfs(y, G, visited, sequence)
+        sequence.append(x)
+    
+    visited = [False] * len(G)
+    sequence = []
+    dfs(0, G, visited, sequence)
+    return sequence
+
 G = [[3,4,5,8],[2,7],[1,6,7],[0,4,7],[0,3],[0,8],[2],[1,2,3],[0,5]]
-print(find_bridges(G))
+print(delete_sequence(G))
+
+#G = [[3,4,5,8],[2,7],[1,6,7],[0,4,7],[0,3],[0,8],[2],[1,2,3],[0,5]]
+#print(find_bridges(G))
 
 #G = [[1,3,4],[0,2],[1,3,4],[0,2,4],[0,3,2]]
 #print(find_path_all(0, G))
