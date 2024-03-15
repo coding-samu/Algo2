@@ -486,8 +486,40 @@ def delete_sequence(G):
     dfs(0, G, visited, sequence)
     return sequence
 
+def nodi_di_articolazione(G: list[list[int]]) -> list[int]:
+    def dfs(u, father, G, V, nodi, D, F, time):
+        V[u] = True
+        D[u] = time[0]
+        time[0] += 1
+        b = True
+        for v in G[u]:
+            if not V[v]:
+                dfs(v, u, G, V, nodi, D, F, time)
+            elif (v != father and D[v] < D[u]):
+                b = False
+        if b: nodi[father] = 1
+        F[u] = time[0]
+        time[0] += 1
+    
+    nodi = [0]*len(G)
+    V = [0]*len(G)
+    D = [0]*len(G)
+    F = [0]*len(G)
+    time = [0]
+    
+    dfs(0, 0, G, V, nodi, D, F, time)
+    nodi_art = []
+    for i in range(len(G)):
+        if nodi[i] == 1:
+            nodi_art.append(i)
+
+    return nodi_art
+
 G = [[3,4,5,8],[2,7],[1,6,7],[0,4,7],[0,3],[0,8],[2],[1,2,3],[0,5]]
-print(delete_sequence(G))
+print(nodi_di_articolazione(G))
+
+#G = [[3,4,5,8],[2,7],[1,6,7],[0,4,7],[0,3],[0,8],[2],[1,2,3],[0,5]]
+#print(delete_sequence(G))
 
 #G = [[3,4,5,8],[2,7],[1,6,7],[0,4,7],[0,3],[0,8],[2],[1,2,3],[0,5]]
 #print(find_bridges(G))
