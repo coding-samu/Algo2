@@ -570,6 +570,29 @@ def bfs_distance(x, G):
     return D
 
 
+def dijkstra(s, G):
+    inserito = [False]*len(G)
+    from math import inf 
+    lista = [(inf,-1)] * len(G)
+    lista[s], inserito[s]  = (0,s), True
+    for y, costo in G[s]:
+        lista[y] = (costo, s)
+    while True:
+        minimo = inf
+        for i in range(len(lista)):
+            if not inserito[i] and lista[i][0] < minimo:
+                minimo, x = lista[i][0], i
+        if minimo == inf:
+            break
+        inserito[x] = True
+        for y, costo in G[x]:
+            if not inserito[y] and minimo + costo < lista[y][0]:
+                lista[y] = (minimo+costo, x)
+    D = [costo for costo, _ in lista]
+    P = [padre for _, padre in lista]
+    return D, P
+
+
 #G = [[3,4,5,8],[2,7],[1,6,7],[0,4,7],[0,3],[0,8],[2],[1,2,3],[0,5]]
 #print(nodi_di_articolazione(G))
 
