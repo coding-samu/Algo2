@@ -560,7 +560,7 @@ def bfs_distance(x, G):
     D[x] = 0
     coda = [x]
     i = 0
-    while len(coda > i):
+    while len(coda) > i:
         u = coda[i]
         i += 1
         for y in G[u]:
@@ -592,6 +592,20 @@ def dijkstra(s, G):
     P = [padre for _, padre in lista]
     return D, P
 
+def bfs_same_distance(u, v, G):
+    Du = bfs_distance(u, G)
+    Dv = bfs_distance(v, G)
+
+    S = []
+
+    for i in range(len(G)):
+        if Du[i] == Dv[i]:
+            S.append(i)
+
+    return S
+
+G = [[1,5],[2],[3],[4],[],[2,4],[2]]
+print(bfs_same_distance(6, 5, G))
 
 #G = [[3,4,5,8],[2,7],[1,6,7],[0,4,7],[0,3],[0,8],[2],[1,2,3],[0,5]]
 #print(nodi_di_articolazione(G))
