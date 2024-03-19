@@ -604,8 +604,32 @@ def bfs_same_distance(u, v, G):
 
     return S
 
-G = [[1,5],[2],[3],[4],[],[2,4],[2]]
-print(bfs_same_distance(6, 5, G))
+def find_diameter_dfs(G): # on trees
+    def max_depth_dfs(u, G, V, max_depth, depth, output):
+        V[u] = 1
+        for x in G[u]:
+            if V[x] == 0:
+                max_depth_dfs(x, G, V, max_depth, depth+1, output)
+        if depth > max_depth[0]:
+            output[0] = u
+            output[1] = depth
+            max_depth[0] = depth
+        return output
+    
+    max_depth = [0]
+    V = [0] * len(G)
+    output = [0,0]
+    u = max_depth_dfs(0, G, V, max_depth, 0, output)[0]
+    V = [0] * len(G)
+    max_depth = [0]
+    output = max_depth_dfs(u, G, V, max_depth, 0, output)
+    return output[1]
+
+G = [[1,4],[0,2,3],[1],[1],[0]]
+print(find_diameter_dfs(G))
+
+#G = [[1,5],[2],[3],[4],[],[2,4],[2]]
+#print(bfs_same_distance(6, 5, G))
 
 #G = [[3,4,5,8],[2,7],[1,6,7],[0,4,7],[0,3],[0,8],[2],[1,2,3],[0,5]]
 #print(nodi_di_articolazione(G))
