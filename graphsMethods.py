@@ -515,8 +515,63 @@ def nodi_di_articolazione(G: list[list[int]]) -> list[int]:
 
     return nodi_art
 
-G = [[3,4,5,8],[2,7],[1,6,7],[0,4,7],[0,3],[0,8],[2],[1,2,3],[0,5]]
-print(nodi_di_articolazione(G))
+def bfs_n2(x, G):
+    visitati = [0]*len(G)
+    visitati[x] = 1
+    coda = [x]
+    while coda:
+        u = coda.pop(0)
+        for y in G[u]:
+            if visitati[y] == 0:
+                visitati[y] = 1
+                coda.append(y)
+    return visitati
+
+def bfs(x, G):
+    visitati = [0]*len(G)
+    visitati[x] = 1
+    coda = [x]
+    i = 0
+    while len(coda) > i:
+        u = coda[i]
+        i += 1
+        for y in G[u]:
+            if visitati[y] == 0:
+                visitati[y] = 1
+                coda.append(y)
+    return visitati
+
+def bfs_parent(x, G):
+    P = [-1]*len(G)
+    P[x] = x
+    coda = [x]
+    i = 0
+    while len(coda) > i:
+        u = coda[i]
+        i += 1
+        for y in G[u]:
+            if P[y] == -1:
+                P[y] = u
+                coda.append(y)
+    return P
+
+def bfs_distance(x, G):
+    D = [-1]*len(G)
+    D[x] = 0
+    coda = [x]
+    i = 0
+    while len(coda > i):
+        u = coda[i]
+        i += 1
+        for y in G[u]:
+            if D[y] == -1:
+                D[y] = D[u]+1
+                coda.append(y)
+    return D
+
+
+#G = [[3,4,5,8],[2,7],[1,6,7],[0,4,7],[0,3],[0,8],[2],[1,2,3],[0,5]]
+#print(nodi_di_articolazione(G))
 
 #G = [[3,4,5,8],[2,7],[1,6,7],[0,4,7],[0,3],[0,8],[2],[1,2,3],[0,5]]
 #print(delete_sequence(G))
