@@ -917,7 +917,6 @@ def super_min_dijkstra(s, G):
     for y, costo in G[s]:
         lista[y] = (costo, s)
         edges[y] = 1
-    print(edges)
     while True:
         minimo = inf
         min_edges = inf
@@ -926,12 +925,10 @@ def super_min_dijkstra(s, G):
                 if edges[i] < min_edges:
                     minimo, x = lista[i][0], i
                     min_edges = edges[lista[y][1]] + 1
-                    print((x, i, edges))
         if minimo == inf:
             break
         inserito[x] = True
         edges[x] = min_edges
-        print(edges)
         for y, costo in G[x]:
             if not inserito[y] and minimo + costo < lista[y][0]:
                 lista[y] = (minimo+costo, x)

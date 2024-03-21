@@ -1,4 +1,4 @@
-from graphsMethods import DFSList
+from graphsMethods import *
 
 def test_DFSList():
     # Test case 1: Simple graph with 3 vertices
@@ -25,8 +25,10 @@ def test_DFSList():
 test_DFSList()
 
 ### Test cases for super min dijkstra ###
-#G = [[(1,2),(4,5)],[(0,2),(2,3)],[(1,3),(3,3)],[(2,3),(4,3)],[(3,3),(0,5)]]
-#print(super_min_dijkstra(0,G))
+G = [[(1,2),(4,5)],[(0,2),(2,3)],[(1,3),(3,3)],[(2,3),(4,3)],[(3,3),(0,5)]]
+print(super_min_dijkstra(0,G))
+
+
 
 ### Test case for posioned nodes dfs ###
 #G = [[1],[2],[]]
