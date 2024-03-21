@@ -625,9 +625,37 @@ def find_diameter_dfs(G): # on trees
     output = max_depth_dfs(u, G, V, max_depth, 0, output)
     return output[1]
 
-G = [[1,4],[0,2,3],[1],[1],[0]]
-print(find_diameter_dfs(G))
+def find_distance_of_two_subset(v_first, v_second, G):
+    pass
 
+def poisoned_nodes_dfs(u, G, P):
+    def dfs(u, G, P, V):
+        V[u] = True
+        for v in G[u]:
+            if not V[v] and P[v] != 1:
+                dfs(v, G, P, V)
+
+    V = [False]*len(G)
+    dfs(u, G, P, V)
+
+    not_visitable_nodes = []
+
+    for i in range(len(G)):
+        if V[i] == False and P[i] != 1:
+            not_visitable_nodes.append(i)
+    
+    return not_visitable_nodes
+
+### Test case for posioned nodes dfs ###
+#G = [[1],[2],[]]
+#P = [0,1,0]
+#print(poisoned_nodes_dfs(0, G, P))
+
+### Test case for find diameter dfs ###
+#G = [[1,4],[0,2,3],[1],[1],[0]]
+#print(find_diameter_dfs(G))
+
+### Test case for bfs same distance ###
 #G = [[1,5],[2],[3],[4],[],[2,4],[2]]
 #print(bfs_same_distance(6, 5, G))
 
