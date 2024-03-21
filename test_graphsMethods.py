@@ -182,3 +182,11 @@ def test_sortTopologico():
     print("All test cases passed!")
 
 test_sortTopologico()
+
+### Test case for find distance of two subset ###
+def test_find_distance_of_two_subset():
+    # Test case 1: Simple graph with 5 nodes
+    G = [[]]
+    assert find_distance_of_two_subset() == 2
+
+    print("All test cases passed!")

@@ -856,7 +856,17 @@ def find_diameter_dfs(G):
     return output[1]
 
 def find_distance_of_two_subset(v_first, v_second, G):
-    pass
+    # Aggiungo due nodi a G
+    G.append(v_first)
+    s = len(G)-1
+    G.append(v_second)
+    t = len(G)-1
+    for node in v_first:
+        G[node].append(s)
+    for node in v_second:
+        G[node].append(t)
+    D = bfs_distance(s, G)
+    return D[t]-2
 
 def poisoned_nodes_dfs(u, G, P):
     """
