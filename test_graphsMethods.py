@@ -25,19 +25,45 @@ def test_DFSList():
 test_DFSList()
 
 ### Test cases for super min dijkstra ###
-G = [[(1,2),(4,5)],[(0,2),(2,3)],[(1,3),(3,3)],[(2,3),(4,3)],[(3,3),(0,5)]]
-print(super_min_dijkstra(0,G))
+def test_super_min_dijkstra():
+    # Test case 1: Simple graph with 5 nodes
+    G = [[(1,2),(4,5)],[(0,2),(2,3)],[(1,3),(3,3)],[(2,3),(4,3)],[(3,3),(0,5)]]
+    assert super_min_dijkstra(0, G) == ([0, 2, 5, 8, 5], [0, 0, 1, 4, 0])
 
+    print("All test cases passed!")
 
+test_super_min_dijkstra()
 
 ### Test case for posioned nodes dfs ###
-#G = [[1],[2],[]]
-#P = [0,1,0]
-#print(poisoned_nodes_dfs(0, G, P))
+def test_poisoned_nodes_dfs():
+    # Test case 1: Simple graph with 3 nodes
+    G = [[1],[2],[]]
+    P = [0,1,0]
+    assert poisoned_nodes_dfs(0, G, P) == [2]
+
+    # Test case 2: Disconnected graph with 5 nodes
+    G = [[1],[0],[3],[2],[]]
+    P = [0,1,0,1,0]
+    assert poisoned_nodes_dfs(0, G, P) == [2,4]
+
+    # Test case 3: Graph with a cycle
+    G = [[1,2],[0,2],[0,1]]
+    P = [0,1,0]
+    assert poisoned_nodes_dfs(0, G, P) == []
+
+    print("All test cases passed!")
+
+test_poisoned_nodes_dfs()
 
 ### Test case for find diameter dfs ###
-#G = [[1,4],[0,2,3],[1],[1],[0]]
-#print(find_diameter_dfs(G))
+def test_find_diameter_dfs():
+    # Test case 1: Simple graph with 5 nodes
+    G = [[1,4],[0,2,3],[1],[1],[0]]
+    assert find_diameter_dfs(G) == 3
+
+    print("All test cases passed!")
+
+test_find_diameter_dfs()
 
 ### Test case for bfs same distance ###
 #G = [[1,5],[2],[3],[4],[],[2,4],[2]]
