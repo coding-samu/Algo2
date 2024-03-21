@@ -517,13 +517,13 @@ def count_edges(G):
                 dfs(u)
             elif discovery[v] < discovery[u]:  # Se l'arco è in avanti
                 forward += 1
-                print(f"forward: {v}-{u}")
+                #print(f"forward: {v}-{u}")
             elif finish[u] == 0:  # Se l'arco è all'indietro
                 backward += 1
-                print(f"backward: {v}-{u}")
+                #print(f"backward: {v}-{u}")
             else:  # Se l'arco è di attraversamento
                 cross += 1
-                print(f"cross: {v}-{u}")
+                #print(f"cross: {v}-{u}")
         
         # Dopo aver esplorato tutti i vicini, registra il tempo di completamento
         finish[v] = time[0]
