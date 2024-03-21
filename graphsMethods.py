@@ -242,9 +242,23 @@ def sortTopologico(G):
     lista.reverse()
     return lista
 
-def subtree(P,x):
-    # P = [3,4,3,5,3,4,5,1]
-    # x = 5
+def subtree(P, x):
+    """
+    Returns the subtree of a given node in a tree represented by a parent array.
+
+    Args:
+        P (list): The parent array representing the tree.
+        x (int): The node for which the subtree is to be found.
+
+    Returns:
+        list: The list of nodes in the subtree of the given node.
+
+    Example:
+        >>> P = [3, 4, 3, 5, 3, 4, 5, 1]
+        >>> x = 5
+        >>> subtree(P, x)
+        [4, 5, 6, 7]
+    """
     subtree = []
     for i in range(len(P)):
         if P[i] != -1:
@@ -258,6 +272,17 @@ def subtree(P,x):
     return subtree
 
 def path_to_root(P, u, x):
+    """
+    Returns the path from node `u` to the root node in the graph represented by the parent array `P`.
+    
+    Args:
+        P (list): The parent array representing the graph.
+        u (int): The starting node.
+        x (int): The target node.
+    
+    Returns:
+        tuple: A tuple containing the path from `u` to the root node and a boolean indicating if `x` is a sub-node of `u`.
+    """
     path = []
     is_sub = False
     path.append(u)
@@ -278,6 +303,16 @@ def path_to_root(P, u, x):
 #print(subtree([2,3,2,4,2,3,4,0],4))
 
 def ordinamento_topologico(G: list[list[int]]) -> list[list[int]]:
+    """
+    Perform topological sorting on a directed acyclic graph (DAG).
+
+    Args:
+        G (list[list[int]]): The adjacency list representation of the graph.
+
+    Returns:
+        list[list[int]]: The topologically sorted order of the vertices in the graph.
+
+    """
     gradoEnt = [0 for _ in G]
     for u in G:
         for v in G[u]:
@@ -296,21 +331,45 @@ def ordinamento_topologico(G: list[list[int]]) -> list[list[int]]:
     return []
 
 def ordinamento_topologico_dfs(G: list[list[int]]) -> list[list[int]]:
+    """
+    Performs a depth-first search (DFS) on a directed acyclic graph (DAG) to obtain a topological ordering of its vertices.
+
+    Args:
+        G (list[list[int]]): The adjacency list representation of the DAG.
+
+    Returns:
+        list[list[int]]: The topological ordering of the vertices.
+
+    """
     def dfs(u, G, V, ST):
         V[u] = 1
         for v in G[u]:
             if V[v] == 0:
                 dfs(v, G, V, ST)
         ST.append(u)
+    
     V = [0 for _ in G]
     ST = []
+    
     for u in range(len(G)):
         if V[u] == 0:
             dfs(u, G, V, ST)
+    
     ST.reverse()
     return ST
 
 def verifica_ciclo_grafo_non_diretto_da_nodo(u:int, G: list[list[int]]) -> bool:
+    """
+    Checks if there is a cycle in an undirected graph starting from a given node.
+
+    Parameters:
+    u (int): The starting node.
+    G (list[list[int]]): The adjacency list representation of the graph.
+
+    Returns:
+    bool: True if a cycle is found, False otherwise.
+    """
+
     def DFSr(u, padre, G, visitati):
         visitati[u] = 1
         for v in G[u]:
@@ -326,6 +385,15 @@ def verifica_ciclo_grafo_non_diretto_da_nodo(u:int, G: list[list[int]]) -> bool:
     return DFSr(u, u, G, visitati)
 
 def verifica_ciclo_grafo_non_diretto(G: list[list[int]]) -> bool:
+    """
+    Checks if a non-directed graph contains a cycle.
+
+    Args:
+        G (list[list[int]]): The adjacency list representation of the graph.
+
+    Returns:
+        bool: True if the graph contains a cycle, False otherwise.
+    """
     def DFSr(u, padre, G, visitati):
         visitati[u] = 1
         for v in G[u]:
@@ -345,6 +413,16 @@ def verifica_ciclo_grafo_non_diretto(G: list[list[int]]) -> bool:
     return False
 
 def verifica_ciclo_grafo_diretto_da_nodo(u: int, G: list[list[int]]) -> bool:
+    """
+    Checks if there is a cycle in a directed graph starting from a given node.
+
+    Args:
+        u (int): The starting node.
+        G (list[list[int]]): The adjacency list representation of the directed graph.
+
+    Returns:
+        bool: True if a cycle is found, False otherwise.
+    """
     def DFSr(u, G, visitati):
         visitati[u] = 1
         for v in G[u]:
@@ -360,6 +438,15 @@ def verifica_ciclo_grafo_diretto_da_nodo(u: int, G: list[list[int]]) -> bool:
     return DFSr(u, G, visitati)
 
 def verifica_ciclo_grafo_diretto_da_nodo(G: list[list[int]]) -> bool:
+    """
+    Verifies if a directed graph contains a cycle starting from a given node.
+
+    Args:
+        G (list[list[int]]): The adjacency list representation of the directed graph.
+
+    Returns:
+        bool: True if a cycle is found, False otherwise.
+    """
     def DFSr(u, G, visitati):
         visitati[u] = 1
         for v in G[u]:
@@ -388,6 +475,18 @@ Arco in avanti: 3-5
 Arco all'indietro: 6-1
 Arco di attraversamento: 2-3
 """
+def count_edges(G):
+    """
+    Counts the number of forward, backward, and cross edges in a directed graph.
+
+    Args:
+        G (list): The adjacency list representation of the directed graph.
+
+    Returns:
+        tuple: A tuple containing the count of forward, backward, and cross edges.
+
+    """
+    # Rest of the code...
 def count_edges(G):
     # Numero di nodi nel grafo
     n = len(G)
@@ -437,6 +536,17 @@ def count_edges(G):
     return forward, backward, cross
 
 def find_path_all(u, G):
+    """
+    Finds all paths from a given node 'u' in a graph 'G'.
+
+    Parameters:
+    - u: The starting node.
+    - G: The graph represented as an adjacency list.
+
+    Returns:
+    - path: A list of paths from 'u' to all other nodes in 'G'.
+    """
+
     def dfs(u, parent, G, path, D, time):
         path.append(u)
         time[0] += 1
@@ -447,12 +557,23 @@ def find_path_all(u, G):
                     dfs(v, u, G, path, D, time)
                     path.append(u)
         return path
+
     D = [0] * len(G)
     time = [0]
     path = []
     return dfs(u, u, G, path, D, time)
 
 def find_bridges(G):
+    """
+    Finds all the bridges in a given graph.
+
+    Args:
+        G (list): The adjacency list representation of the graph.
+
+    Returns:
+        list: A list of tuples representing the bridges in the graph. Each tuple contains two vertices (x, y),
+              indicating that there is a bridge between vertex x and vertex y.
+    """
     def dfs(x, t, G, height, bridges):
         from math import inf
         height[x] = t
@@ -474,6 +595,16 @@ def find_bridges(G):
 
 
 def delete_sequence(G):
+    """
+    Deletes a sequence of nodes in a graph using depth-first search (DFS).
+
+    Parameters:
+    - G (list): The adjacency list representation of the graph.
+
+    Returns:
+    - sequence (list): The sequence of nodes in the graph after deletion.
+
+    """
     def dfs(x, G, visited, sequence):
         visited[x] = True
         for y in G[x]:
@@ -487,6 +618,15 @@ def delete_sequence(G):
     return sequence
 
 def nodi_di_articolazione(G: list[list[int]]) -> list[int]:
+    """
+    Finds and returns the articulation points in a given graph.
+
+    Args:
+        G (list[list[int]]): The adjacency list representation of the graph.
+
+    Returns:
+        list[int]: A list of articulation points in the graph.
+    """
     def dfs(u, father, G, V, nodi, D, F, time):
         V[u] = True
         D[u] = time[0]
@@ -516,6 +656,16 @@ def nodi_di_articolazione(G: list[list[int]]) -> list[int]:
     return nodi_art
 
 def bfs_n2(x, G):
+    """
+    Perform breadth-first search starting from node x in the graph G.
+
+    Args:
+        x (int): The starting node.
+        G (list): The adjacency list representation of the graph.
+
+    Returns:
+        list: A list of 0s and 1s indicating whether each node is visited or not.
+    """
     visitati = [0]*len(G)
     visitati[x] = 1
     coda = [x]
@@ -528,6 +678,17 @@ def bfs_n2(x, G):
     return visitati
 
 def bfs(x, G):
+    """
+    Perform breadth-first search starting from node x in the graph G.
+
+    Parameters:
+    - x: The starting node for the breadth-first search.
+    - G: The graph represented as an adjacency list.
+
+    Returns:
+    - visitati: A list indicating which nodes have been visited during the breadth-first search.
+                The value at index i is 1 if node i has been visited, and 0 otherwise.
+    """
     visitati = [0]*len(G)
     visitati[x] = 1
     coda = [x]
@@ -542,6 +703,17 @@ def bfs(x, G):
     return visitati
 
 def bfs_parent(x, G):
+    """
+    Perform a breadth-first search starting from node x in the graph G and return the parent array.
+
+    Args:
+        x (int): The starting node.
+        G (list): The adjacency list representation of the graph.
+
+    Returns:
+        list: The parent array where P[i] represents the parent of node i in the breadth-first search tree.
+
+    """
     P = [-1]*len(G)
     P[x] = x
     coda = [x]
@@ -556,6 +728,16 @@ def bfs_parent(x, G):
     return P
 
 def bfs_distance(x, G):
+    """
+    Calculates the shortest distance from a given node 'x' to all other nodes in the graph 'G' using Breadth-First Search (BFS).
+
+    Parameters:
+    - x: The starting node.
+    - G: The graph represented as an adjacency list.
+
+    Returns:
+    - D: A list of distances from the starting node to all other nodes. The distance is -1 if a node is unreachable from the starting node.
+    """
     D = [-1]*len(G)
     D[x] = 0
     coda = [x]
@@ -571,6 +753,19 @@ def bfs_distance(x, G):
 
 
 def dijkstra(s, G):
+    """
+    Applies Dijkstra's algorithm to find the shortest path from a source node to all other nodes in a graph.
+
+    Parameters:
+        s (int): The index of the source node.
+        G (list): The adjacency list representation of the graph. Each element in the list is a tuple (y, costo),
+                  where y is the index of a neighboring node and costo is the cost of the edge between the nodes.
+
+    Returns:
+        tuple: A tuple (D, P) where D is a list of shortest distances from the source node to each node in the graph,
+               and P is a list of parent nodes that form the shortest path from the source node to each node.
+
+    """
     inserito = [False]*len(G)
     from math import inf 
     lista = [(inf,-1)] * len(G)
@@ -593,6 +788,17 @@ def dijkstra(s, G):
     return D, P
 
 def bfs_same_distance(u, v, G):
+    """
+    Returns a list of nodes in the graph `G` that have the same distance from nodes `u` and `v`.
+
+    Parameters:
+    - u: The starting node.
+    - v: The target node.
+    - G: The graph represented as an adjacency matrix.
+
+    Returns:
+    - S: A list of nodes that have the same distance from nodes `u` and `v`.
+    """
     Du = bfs_distance(u, G)
     Dv = bfs_distance(v, G)
 
@@ -604,7 +810,31 @@ def bfs_same_distance(u, v, G):
 
     return S
 
-def find_diameter_dfs(G): # on trees
+def find_diameter_dfs(G):
+    """
+    Finds the diameter of a tree using depth-first search (DFS).
+
+    Parameters:
+    - G (list): The adjacency list representation of the tree.
+
+    Returns:
+    - int: The diameter of the tree.
+
+    Algorithm:
+    1. Initialize the maximum depth as 0.
+    2. Initialize the visited array V with all elements set to 0.
+    3. Call the helper function max_depth_dfs with the root node, G, V, maximum depth, current depth, and output array.
+    4. Update the maximum depth and output array based on the result of the helper function.
+    5. Reset the visited array V.
+    6. Reset the maximum depth.
+    7. Call the helper function max_depth_dfs with the node found in step 4, G, V, maximum depth, current depth, and output array.
+    8. Return the maximum depth from the output array.
+
+    Note:
+    - This function assumes that the input graph is a tree.
+    - The input graph G should be represented as an adjacency list.
+    - The output is the diameter of the tree, which is the longest path between any two nodes in the tree.
+    """
     def max_depth_dfs(u, G, V, max_depth, depth, output):
         V[u] = 1
         for x in G[u]:
@@ -629,6 +859,19 @@ def find_distance_of_two_subset(v_first, v_second, G):
     pass
 
 def poisoned_nodes_dfs(u, G, P):
+    """
+    Finds the nodes in a graph that cannot be visited from a given starting node,
+    considering that some nodes are poisoned.
+
+    Parameters:
+    u (int): The starting node.
+    G (list): The adjacency list representation of the graph.
+    P (list): The list indicating whether each node is poisoned (1) or not (0).
+
+    Returns:
+    list: The list of nodes that cannot be visited from the starting node.
+    """
+
     def dfs(u, G, P, V):
         V[u] = True
         for v in G[u]:
@@ -647,6 +890,24 @@ def poisoned_nodes_dfs(u, G, P):
     return not_visitable_nodes
 
 def super_min_dijkstra(s, G):
+    """
+    Finds the shortest path distances and predecessors from a given source node to all other nodes in a graph.
+
+    Args:
+        s (int): The source node.
+        G (list): The adjacency list representation of the graph.
+
+    Returns:
+        tuple: A tuple containing two lists:
+            - D (list): The shortest path distances from the source node to all other nodes.
+            - P (list): The predecessors of each node in the shortest path.
+
+    Example:
+        G = [[(1, 2), (2, 4)], [(2, 1), (3, 7)], [(3, 3)], [(4, 5)], []]
+        D, P = super_min_dijkstra(0, G)
+        print(D)  # Output: [0, 2, 4, 7, inf]
+        print(P)  # Output: [None, 0, 0, 1, None]
+    """
     inserito = [False]*len(G)
     from math import inf 
     lista = [(inf,-1)] * len(G)
