@@ -646,6 +646,42 @@ def poisoned_nodes_dfs(u, G, P):
     
     return not_visitable_nodes
 
+def super_min_dijkstra(s, G):
+    inserito = [False]*len(G)
+    from math import inf 
+    lista = [(inf,-1)] * len(G)
+    edges = [inf] * len(G)
+    edges[s] = 0
+    lista[s], inserito[s]  = (0,s), True
+    for y, costo in G[s]:
+        lista[y] = (costo, s)
+        edges[y] = 1
+    print(edges)
+    while True:
+        minimo = inf
+        min_edges = inf
+        for i in range(len(lista)):
+            if not inserito[i] and lista[i][0] < minimo:
+                if edges[i] < min_edges:
+                    minimo, x = lista[i][0], i
+                    min_edges = edges[lista[y][1]] + 1
+                    print((x, i, edges))
+        if minimo == inf:
+            break
+        inserito[x] = True
+        edges[x] = min_edges
+        print(edges)
+        for y, costo in G[x]:
+            if not inserito[y] and minimo + costo < lista[y][0]:
+                lista[y] = (minimo+costo, x)
+    D = [costo for costo, _ in lista]
+    P = [padre for _, padre in lista]
+    return D, P
+
+### Test cases for super min dijkstra ###
+G = [[(1,2),(4,5)],[(0,2),(2,3)],[(1,3),(3,3)],[(2,3),(4,3)],[(3,3),(0,5)]]
+print(super_min_dijkstra(0,G))
+
 ### Test case for posioned nodes dfs ###
 #G = [[1],[2],[]]
 #P = [0,1,0]
