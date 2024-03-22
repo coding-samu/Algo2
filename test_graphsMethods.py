@@ -214,7 +214,17 @@ test_sortTopologico()
 def test_find_distance_of_two_subset():
     print("Running test cases for find_distance_of_two_subset...")
     # Test case 1: Simple graph with 5 nodes
-    G = [[]]
-    assert find_distance_of_two_subset() == 2
+    G = [[1,2,4],[0,3],[0,3,4],[1,2,4],[0,2,3]]
+    assert find_distance_of_two_subset([0],[4], G) == 1
+
+    # Test case 2: Simple graph with 5 nodes
+    G = [[1,2,4],[0,3],[0,3,4],[1,2,4],[0,2,3]]
+    assert find_distance_of_two_subset([0],[0], G) == 0
+
+    # Test case 3: Simple graph with 5 nodes
+    G = [[1,2,4],[0,3],[0,3,4],[1,2,4],[0,2,3]]
+    assert find_distance_of_two_subset([1],[4], G) == 2
 
     print("All test cases passed!")
+
+test_find_distance_of_two_subset()
