@@ -1,6 +1,7 @@
 from graphsMethods import *
 
 def test_DFSList():
+    print("Running test cases for DFSList...")
     # Test case 1: Simple graph with 3 vertices
     G = [[1, 2], [0, 2], [0, 1]]
     assert DFSList(0, G) == [True, True, True]
@@ -26,6 +27,7 @@ test_DFSList()
 
 ### Test cases for super min dijkstra ###
 def test_super_min_dijkstra():
+    print("Running test cases for super_min_dijkstra...")
     # Test case 1: Simple graph with 5 nodes
     G = [[(1,2),(4,5)],[(0,2),(2,3)],[(1,3),(3,3)],[(2,3),(4,3)],[(3,3),(0,5)]]
     assert super_min_dijkstra(0, G) == ([0, 2, 5, 8, 5], [0, 0, 1, 4, 0])
@@ -33,6 +35,17 @@ def test_super_min_dijkstra():
     print("All test cases passed!")
 
 test_super_min_dijkstra()
+
+### Test cases for super min dijkstra ###
+def test_super_min_dijkstra_by_modified_weight():
+    print("Running test cases for super_min_dijkstra_by_modified_weight...")
+    # Test case 1: Simple graph with 5 nodes
+    G = [[(1,2),(4,5)],[(0,2),(2,3)],[(1,3),(3,3)],[(2,3),(4,3)],[(3,3),(0,5)]]
+    assert super_min_dijkstra_by_modified_weight(0, G) == ([0, 2, 5, 8, 5], [0, 0, 1, 4, 0])
+
+    print("All test cases passed!")
+
+test_super_min_dijkstra_by_modified_weight()
 
 ### Test case for posioned nodes dfs ###
 def test_poisoned_nodes_dfs():

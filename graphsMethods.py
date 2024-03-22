@@ -945,3 +945,27 @@ def super_min_dijkstra(s, G):
     D = [costo for costo, _ in lista]
     P = [padre for _, padre in lista]
     return D, P
+
+def super_min_dijkstra_by_modified_weight(s, G):
+    n = len(G)
+    inserito = [False]*n
+    from math import inf 
+    lista = [(inf,-1)] * n
+    lista[s], inserito[s]  = (0,s), True
+    G = [[(u, costo+1/n) for u, costo in G[i]] for i in range(n)]
+    for y, costo in G[s]:
+        lista[y] = (costo, s)
+    while True:
+        minimo = inf
+        for i in range(len(lista)):
+            if not inserito[i] and lista[i][0] < minimo:
+                minimo, x = lista[i][0], i
+        if minimo == inf:
+            break
+        inserito[x] = True
+        for y, costo in G[x]:
+            if not inserito[y] and minimo + costo < lista[y][0]:
+                lista[y] = (minimo+costo, x)
+    D = [round(costo) for costo, _ in lista]
+    P = [padre for _, padre in lista]
+    return D, P
