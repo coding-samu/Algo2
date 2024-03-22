@@ -856,6 +856,21 @@ def find_diameter_dfs(G):
     return output[1]
 
 def find_distance_of_two_subset(v_first, v_second, G):
+    """
+    Calculates the distance between two subsets of vertices in a graph.
+
+    Args:
+        v_first (list): The first subset of vertices.
+        v_second (list): The second subset of vertices.
+        G (list): The graph represented as an adjacency list.
+
+    Returns:
+        int: The distance between the two subsets.
+
+    Raises:
+        None
+
+    """
     # Aggiungo due nodi a G
     G.append(v_first)
     s = len(G)-1
@@ -947,6 +962,20 @@ def super_min_dijkstra(s, G):
     return D, P
 
 def super_min_dijkstra_by_modified_weight(s, G):
+    """
+    Finds the shortest path from a source node to all other nodes in a graph using Dijkstra's algorithm.
+    The weights of the edges are modified by adding 1/n to the original cost.
+
+    Parameters:
+    - s (int): The source node index.
+    - G (list): The adjacency list representation of the graph. Each element in the list is a list of tuples (u, costo),
+                where u is the destination node index and costo is the original cost of the edge.
+
+    Returns:
+    - D (list): The list of shortest path distances from the source node to all other nodes.
+    - P (list): The list of predecessors for each node in the shortest path.
+
+    """
     n = len(G)
     inserito = [False]*n
     from math import inf 
