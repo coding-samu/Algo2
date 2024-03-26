@@ -1015,3 +1015,18 @@ def union_find_union(a, b, C):
     else:
         C[b] = (b, tota + totb)
         C[b] = (a, totb)
+
+def kruskal(G):
+    E = [(c, u, v) for u  in range(len(G)) for v, c in G[u] if u < v]
+    E.sort(reverse=True)
+    T = [[] for _ in G]
+    C = union_find_crea(T)
+    while E:
+        c, x, y = E.pop()
+        cx = union_find_find(x, C)
+        cy = union_find_find(y, C)
+        if cx != cy:
+            T[x].append(y)
+            T[y].append(x)
+            union_find_union(cx, cy, C)
+    return T
