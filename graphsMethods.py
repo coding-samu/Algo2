@@ -1035,9 +1035,10 @@ def grafo_quadrato(G):
     def graf_quad_ric(u, G, Q, V):
         V[u] = True
         for v in G[u]:
+            if v not in Q[u]: Q[u].append(v)
             for w in G[v]:
                 if w != u:
-                    Q[u].add(w)
+                    if w not in Q[u]: Q[u].append(w)
             if not V[v]:
                 graf_quad_ric(v, G, Q, V)
 

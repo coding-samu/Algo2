@@ -228,3 +228,7 @@ def test_find_distance_of_two_subset():
     print("All test cases passed!")
 
 test_find_distance_of_two_subset()
+
+print(grafo_quadrato([[1],[2],[3],[4],[5],[0]])) # [[1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 1]]
+
+print(grafo_quadrato(grafo_quadrato([[1],[2],[3],[4],[5],[0]])))
