@@ -998,3 +998,20 @@ def super_min_dijkstra_by_modified_weight(s, G):
     D = [round(costo) for costo, _ in lista]
     P = [padre for _, padre in lista]
     return D, P
+
+def union_find_crea(G):
+    return [(i,1) for i in range(len(G))]
+
+def union_find_find(u, C):
+    while u != C[u]:
+        u = C[u]
+    return u
+
+def union_find_union(a, b, C):
+    tota, totb = C[a][1], C[b][1]
+    if tota >= totb:
+        C[a] = (a, tota + totb)
+        C[b] = (a, totb)
+    else:
+        C[b] = (b, tota + totb)
+        C[b] = (a, totb)
