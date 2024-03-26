@@ -229,6 +229,17 @@ def test_find_distance_of_two_subset():
 
 test_find_distance_of_two_subset()
 
-print(grafo_quadrato([[1],[2],[3],[4],[5],[0]])) # [[1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 1]]
+# Test case for grafo quadrato
+def test_grafo_quadrato():
+    print("Running test cases for grafo_quadrato...")
+    # Test case 1: Simple graph with 6 nodes
+    G = [[1],[2],[3],[4],[5],[0]]
+    assert grafo_quadrato(G) == [[1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 1]]
 
-print(grafo_quadrato(grafo_quadrato([[1],[2],[3],[4],[5],[0]])))
+    # Test case 2: Simple graph with 6 nodes
+    G = [[1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 1]]
+    assert grafo_quadrato(G) == [[1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 0], [4, 5, 0, 1], [5, 0, 1, 2], [0, 1, 2, 3]]
+
+    print("All test cases passed!")
+
+test_grafo_quadrato()
