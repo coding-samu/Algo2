@@ -1030,3 +1030,18 @@ def kruskal(G):
             T[y].append(x)
             union_find_union(cx, cy, C)
     return T
+
+def grafo_quadrato(G):
+    def graf_quad_ric(u, G, Q, V):
+        V[u] = True
+        for v in G[u]:
+            for w in G[v]:
+                if w != u:
+                    Q[u].add(w)
+            if not V[v]:
+                graf_quad_ric(v, G, Q, V)
+
+    Q = [[] for _ in G]
+    V = [False]*len(G)
+    graf_quad_ric(0, G, Q, V)
+    return Q
