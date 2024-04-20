@@ -130,3 +130,28 @@ def scelta(A, B):
     for i in range(n//2,n):
         sol += B[lista[i][1]]
     return sol
+
+def sottoinsieme_indipendente(G):
+    """
+    Finds the maximum independent set in a given graph using Depth-First Search (DFS).
+
+    Parameters:
+    G (list): The adjacency list representation of the graph.
+
+    Returns:
+    list: The list of vertices in the maximum independent set.
+
+    """
+    def dfs_visit(u,G):
+        visited[u] = 0
+        for v in G[u]:
+            if visited[v] == -1:
+                dfs_visit(v,G)
+                if visited[v] == 2: visited[u] = 1
+        if visited[u] == 0: visited[u] = 2
+    visited = [-1]*len(G)
+    dfs_visit(0,G)
+    return [u for u in range(len(G)) if visited[u] == 2]
+
+G = [[4],[2],[1,4,8],[5],[0,2,9],[3,6,7,8],[5],[5],[2,5],[4]]
+print(sottoinsieme_indipendente(G))

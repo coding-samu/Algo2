@@ -51,3 +51,13 @@ def test_scelta():
     print("All test cases passed!")
 
 test_scelta()
+
+def test_sottoinsieme_indipendente():
+    print("Running test cases for sottoinsieme_indipendente...")
+    # Test case 1: Simple graph with 10 nodes
+    G = [[4],[2],[1,4,8],[5],[0,2,9],[3,6,7,8],[5],[5],[2,5],[4]]
+    assert sottoinsieme_indipendente(G) == [0, 1, 3, 6, 7, 8, 9]
+    
+    print("All test cases passed!")
+
+test_sottoinsieme_indipendente()
