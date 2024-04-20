@@ -73,3 +73,16 @@ def test_swap():
     print("All test cases passed!")
 
 test_swap()
+
+def test_fai_benzina():
+    print("Running test cases for fai_benzina...")
+    # Test case 1: Simple list of distances
+    l = 5
+    A = [3,7,9]
+    a = 0
+    b = 12
+    assert fai_benzina(l,A,a,b) == [3,7]
+    
+    print("All test cases passed!")
+
+test_fai_benzina()

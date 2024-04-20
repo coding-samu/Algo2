@@ -180,7 +180,7 @@ def swap(A,B,k):
     return sum(A)
 
 
-def fai_benzina(l,A):
+def fai_benzina(l,A,a,b):
     """
     Finds the minimum number of gas stations to reach the destination.
 
@@ -192,21 +192,44 @@ def fai_benzina(l,A):
     Args:
         l (int): kilometers that can be traveled with a full tank.
         A (list): A list of integers representing the locations of gas stations along the route.
+        a (int): The starting point of the route.
+        b (int): The destination point of the route.
 
     Returns:
         list: A list of integers representing the locations of the placed gas stations.
 
     """
-    n = len(A)
-    i, sol = 0, []
-    while i < n:
-        j = i
-        while j+1 < n and A[j+1]-A[i] <= l:
-            j += 1
-        sol.append(A[j])
-        i = j + 1
-    return sol
+    def ric(c,d):
+        if c >= d:
+            return
+        par = c
+        arr = d
+        # Trovo la più distante tra le stazioni che posso raggiungere da c
+        j = 0
+        for i in range(len(A)):
+            if A[i] <= c + l:
+                par = A[i]
+                j = i
+            else:
+                break
+        fermate[j] = 1
+
+        # Trovo la più distante tra le stazioni da cui posso raggiungere d
+        j = 0
+        for i in range(len(A)-1,-1,-1):
+            if A[i] >= d - l:
+                arr = A[i]
+                j = i
+            else:
+                break
+        fermate[j] = 1
+
+        ric(par,arr)
+
+    fermate = [0]*len(A)
+    ric(a,b)
+    return sorted([A[i] for i in range(len(A)) if fermate[i] == 1])
 
 l = 5
-A = [1,2,3,4,5,6,7,8,9,10]
-print(fai_benzina(l, A)) # Expected output: [5, 10]
+A = [3,7,9]
+print(fai_benzina(l, A,0,12)) # Expected output: [5, 10]
