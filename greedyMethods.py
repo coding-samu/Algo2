@@ -1,3 +1,5 @@
+from heapq import heappush, heappop
+
 def place_dumpsters(L, k):
     """
     Place dumpsters along a street based on the given house locations and a maximum distance between dumpsters.
@@ -49,4 +51,20 @@ def select_a(lista):
         if libero < inizio:
             sol.append((inizio, fine))
             libero = fine
+    return sol
+
+
+def assegnazioneAule(lista):
+    sol = [[]]
+    H = [(0,0)]
+    lista.sort()
+    for inizio,fine in lista:
+        libera, aula = H[0]
+        if libera < inizio:
+            sol[aula].append((inizio,fine))
+            heappop(H)
+            heappush(H,(fine,aula))
+        else:
+            sol.append([(inizio,fine)])
+            heappush(H,(fine,len(sol)-1))
     return sol
