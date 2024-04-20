@@ -178,3 +178,35 @@ def swap(A,B,k):
     for i in range(k):
         A[lista[i][1]], B[lista[i][1]] = B[lista[i][1]], A[lista[i][1]]
     return sum(A)
+
+
+def fai_benzina(l,A):
+    """
+    Finds the minimum number of gas stations to reach the destination.
+
+    The function takes a list of gas stations along a route and a maximum distance that can be
+    traveled with a full tank as input. It then iterates over the gas stations and places a
+    gas station at the farthest reachable point from the current gas station. Finally, it returns
+    the list of gas stations placed along the route.
+
+    Args:
+        l (int): kilometers that can be traveled with a full tank.
+        A (list): A list of integers representing the locations of gas stations along the route.
+
+    Returns:
+        list: A list of integers representing the locations of the placed gas stations.
+
+    """
+    n = len(A)
+    i, sol = 0, []
+    while i < n:
+        j = i
+        while j+1 < n and A[j+1]-A[i] <= l:
+            j += 1
+        sol.append(A[j])
+        i = j + 1
+    return sol
+
+l = 5
+A = [1,2,3,4,5,6,7,8,9,10]
+print(fai_benzina(l, A)) # Expected output: [5, 10]
