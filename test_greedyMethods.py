@@ -40,3 +40,14 @@ def test_file():
     print("All test cases passed!")
 
 test_file()
+
+def test_scelta():
+    print("Running test cases for scelta...")
+    # Test case 1: Simple list of intervals
+    A = [10,2,4,6,1,7,3,4]
+    B = [6,6,1,0,3,8,5,7]
+    assert scelta(A,B) == 48
+    
+    print("All test cases passed!")
+
+test_scelta()

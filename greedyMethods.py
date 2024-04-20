@@ -102,3 +102,31 @@ def file(D, k):
             spazio += d
         else:
             return sol
+        
+
+def scelta(A, B):
+    """
+    Calculates the sum of elements from two lists based on a greedy method.
+
+    The function takes two lists, A and B, of equal length as input. It calculates the difference
+    between each element of A and B, sorts the differences in descending order, and then selects
+    the first half of the sorted list from A and the second half from B. Finally, it returns the
+    sum of the selected elements.
+
+    Args:
+        A (list): The first list of elements.
+        B (list): The second list of elements.
+
+    Returns:
+        int: The sum of the selected elements.
+
+    """
+    n = len(A)
+    lista = [(A[i]-B[i],i) for i in range(n)]
+    lista.sort(reverse=True)
+    sol = 0
+    for i in range(n//2):
+        sol += A[lista[i][1]]
+    for i in range(n//2,n):
+        sol += B[lista[i][1]]
+    return sol
