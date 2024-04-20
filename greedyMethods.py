@@ -20,3 +20,14 @@ def place_dumpsters(L, k):
                 dumpsters.append(p)
                 dump_count += 1
     return dumpsters
+
+
+def select_a(lista):
+    lista.sort(key = lambda x: x[1])
+    libero = 0
+    sol = []
+    for inizio, fine in lista:
+        if libero < inizio:
+            sol.append((inizio, fine))
+            libero = fine
+    return sol
