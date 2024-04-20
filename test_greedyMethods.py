@@ -30,3 +30,13 @@ def test_assegnazioneAule():
     print("All test cases passed!")
 
 test_assegnazioneAule()
+
+def test_file():
+    print("Running test cases for file...")
+    # Test case 1: Simple list of intervals
+    lista = [5,6,3,5,4,7,3]
+    assert file(lista,11) == [2,6,4]
+    
+    print("All test cases passed!")
+
+test_file()
