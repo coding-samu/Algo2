@@ -20,3 +20,13 @@ def test_select_a():
     print("All test cases passed!")
 
 test_select_a()
+
+def test_assegnazioneAule():
+    print("Running test cases for assegnazioneAule...")
+    # Test case 1: Simple list of intervals
+    lista = [(1,4),(1,6),(7,8),(5,10)]
+    assert assegnazioneAule(lista) == [[(1,4),(5,10)],[(1,6),(7,8)]]
+    
+    print("All test cases passed!")
+
+test_assegnazioneAule()
