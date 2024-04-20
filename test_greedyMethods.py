@@ -61,3 +61,15 @@ def test_sottoinsieme_indipendente():
     print("All test cases passed!")
 
 test_sottoinsieme_indipendente()
+
+def test_swap():
+    print("Running test cases for swap...")
+    # Test case 1: Simple lists of elements
+    A = [2,4,5,6,7]
+    B = [3,4,2,1,3]
+    k = 3
+    assert swap(A,B,k) == 22
+    
+    print("All test cases passed!")
+
+test_swap()

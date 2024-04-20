@@ -152,3 +152,29 @@ def sottoinsieme_indipendente(G):
     visited = [-1]*len(G)
     dfs_visit(0,G)
     return [u for u in range(len(G)) if visited[u] == 2]
+
+
+def swap(A,B,k):
+    """
+    Swaps elements between two lists to maximize the sum of the elements in one of the lists.
+
+    The function takes two lists, A and B, and an integer k as input. It then calculates the
+    difference between each element of A and B, sorts the differences in descending order, and
+    swaps the first k elements of A with the first k elements of B. Finally, it returns the sum
+    of the elements in A.
+
+    Args:
+        A (list): The first list of elements.
+        B (list): The second list of elements.
+        k (int): The number of elements to swap between the two lists.
+
+    Returns:
+        int: The sum of the elements in list A after swapping.
+
+    """
+    n = len(A)
+    lista = [(A[i]-B[i],i) for i in range(n)]
+    lista.sort()
+    for i in range(k):
+        A[lista[i][1]], B[lista[i][1]] = B[lista[i][1]], A[lista[i][1]]
+    return sum(A)
