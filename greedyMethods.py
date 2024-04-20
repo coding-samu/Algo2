@@ -152,6 +152,3 @@ def sottoinsieme_indipendente(G):
     visited = [-1]*len(G)
     dfs_visit(0,G)
     return [u for u in range(len(G)) if visited[u] == 2]
-
-G = [[4],[2],[1,4,8],[5],[0,2,9],[3,6,7,8],[5],[5],[2,5],[4]]
-print(sottoinsieme_indipendente(G))
