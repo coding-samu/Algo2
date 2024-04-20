@@ -1,4 +1,14 @@
 def place_dumpsters(L, k):
+    """
+    Place dumpsters along a street based on the given house locations and a maximum distance between dumpsters.
+
+    Args:
+        L (list): A list of integers representing the locations of houses along the street.
+        k (int): The maximum distance between dumpsters.
+
+    Returns:
+        list: A list of integers representing the locations of the placed dumpsters.
+    """
     dumpsters = []
     dump_count = 0
     street = L[-1]
@@ -23,7 +33,16 @@ def place_dumpsters(L, k):
 
 
 def select_a(lista):
-    lista.sort(key = lambda x: x[1])
+    """
+    Selects a subset of intervals from the given list based on the greedy method.
+
+    Args:
+        lista (list): A list of intervals represented as tuples (inizio, fine).
+
+    Returns:
+        list: A subset of intervals from the given list that satisfies the greedy condition.
+    """
+    lista.sort(key=lambda x: x[1])
     libero = 0
     sol = []
     for inizio, fine in lista:
