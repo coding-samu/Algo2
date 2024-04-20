@@ -229,7 +229,3 @@ def fai_benzina(l,A,a,b):
     fermate = [0]*len(A)
     ric(a,b)
     return sorted([A[i] for i in range(len(A)) if fermate[i] == 1])
-
-l = 5
-A = [3,7,9]
-print(fai_benzina(l, A,0,12)) # Expected output: [5, 10]
