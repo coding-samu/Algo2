@@ -55,6 +55,16 @@ def select_a(lista):
 
 
 def assegnazioneAule(lista):
+    """
+    Assigns classrooms to a list of time intervals.
+
+    Args:
+        lista (list): A list of tuples representing time intervals. Each tuple contains two elements: the start time and the end time.
+
+    Returns:
+        list: A list of lists representing the assigned time intervals for each classroom. Each inner list contains tuples representing time intervals assigned to a specific classroom.
+
+    """
     sol = [[]]
     H = [(0,0)]
     lista.sort()
