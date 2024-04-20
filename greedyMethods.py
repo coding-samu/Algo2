@@ -78,3 +78,27 @@ def assegnazioneAule(lista):
             sol.append([(inizio,fine)])
             heappush(H,(fine,len(sol)-1))
     return sol
+
+
+def file(D, k):
+    """
+    Selects files from a list based on their sizes, until the total size of selected files is less than or equal to a given limit.
+
+    Args:
+        D (list): A list of file sizes.
+        k (int): The maximum total size of selected files.
+
+    Returns:
+        list: A list of indices of the selected files.
+
+    """
+    n = len(D)
+    lista = [(D[i], i) for i in range(n)]
+    lista.sort()
+    spazio, sol = 0, []
+    for d, i in lista:
+        if spazio + d <= k:
+            sol.append(i)
+            spazio += d
+        else:
+            return sol
