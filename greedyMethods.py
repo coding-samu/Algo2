@@ -229,3 +229,26 @@ def fai_benzina(l,A,a,b):
     fermate = [0]*len(A)
     ric(a,b)
     return sorted([A[i] for i in range(len(A)) if fermate[i] == 1])
+
+
+def unique_set(G: list[list[tuple[int, int]]]) -> tuple[list[tuple[int, int, int]],int]:
+    """
+    Finds the unique set of tuples with the maximum second element in each sublist of G.
+
+    Args:
+        G (list[list[tuple[int, int]]]): A list of sublists, where each sublist contains tuples of integers.
+
+    Returns:
+        tuple[list[tuple[int, int, int]], int]: A tuple containing the unique set of tuples with the maximum second element
+        in each sublist of G, and the sum of all the second elements in the unique set.
+
+    """
+    sol = []
+    for i in range(len(G)):
+        if G[i] != []:
+            G[i].sort(key=lambda x: x[1], reverse=True)
+            sol.append((i,G[i][0][0],G[i][0][1]))
+    sum = 0
+    for i in range(len(sol)):
+        sum += sol[i][2]
+    return (sol,sum)

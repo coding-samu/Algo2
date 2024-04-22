@@ -86,3 +86,13 @@ def test_fai_benzina():
     print("All test cases passed!")
 
 test_fai_benzina()
+
+def test_unique_set():
+    print("Running test cases for unique_set...")
+    # Test case 1: Simple list of elements
+    G = [[(1,2),(2,3)],[(2,1)],[],[(0,1),(2,4),(6,5)],[(1,2),(5,8)],[(2,8)],[(5,3),(2,7)]]
+    assert unique_set(G) == ([(0, 2, 3), (1, 2, 1), (3, 6, 5), (4, 5, 8), (5, 2, 8), (6, 2, 7)], 32)
+    
+    print("All test cases passed!")
+
+test_unique_set()
