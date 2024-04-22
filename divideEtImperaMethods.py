@@ -58,3 +58,11 @@ def selezione(A,k):
         return perno
     else:
         return selezione(A2,k-len(A1)-1)
+    
+def pow(a,n):
+    if n == 0:
+        return 1
+    x = pow(a,n//2)
+    if n % 2:
+        return x*x*a
+    return x*x
