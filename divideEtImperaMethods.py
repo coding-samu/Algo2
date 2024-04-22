@@ -66,3 +66,15 @@ def pow(a,n):
     if n % 2:
         return x*x*a
     return x*x
+
+def maximum_sum_of_sublist(A,i,j):
+    if i == j:
+        return A[i],A[i],A[i],A[i]
+    m = (i+j)//2
+    sols, tots, pms, sms = maximum_sum_of_sublist(A,i,m)
+    sold, totd, pmd, smd = maximum_sum_of_sublist(A,m+1,j)
+    sol = max(sols,sold,sms + pmd)
+    tot = tots + totd
+    pm = max(pms,tots + pmd)
+    sm = max(smd,sms + totd)
+    return sol, tot, pm, sm
