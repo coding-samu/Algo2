@@ -78,3 +78,13 @@ def maximum_sum_of_sublist(A,i,j):
     pm = max(pms,tots + pmd)
     sm = max(smd,sms + totd)
     return sol, tot, pm, sm
+
+def count_substring_that_starts_with_zero_and_ends_with_one(S,i,j):
+    if i == j:
+        if S[i] == '0':
+            return (1,0,0)
+        return (0,1,0)
+    m = (i+j)//2
+    zs,us,ts = count_substring_that_starts_with_zero_and_ends_with_one(S,i,m)
+    zd,ud,td = count_substring_that_starts_with_zero_and_ends_with_one(S,m+1,j)
+    return zs+zd,us+ud,zs*ud+ts+td
