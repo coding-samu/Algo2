@@ -233,10 +233,10 @@ def fai_benzina(l,A,a,b):
 
 def unique_set(G: list[list[tuple[int, int]]]) -> tuple[list[tuple[int, int, int]],int]:
     """
-    Finds the unique set of tuples with the maximum second element in each sublist of G.
+    Finds the unique set of tuples with the maximum second element in each sublist of a directed graph G.
 
     Args:
-        G (list[list[tuple[int, int]]]): A list of sublists, where each sublist contains tuples of integers.
+        G (list[list[tuple[int, int]]]): A list of sublists, where each sublist contains tuples of integers (node,weight).
 
     Returns:
         tuple[list[tuple[int, int, int]], int]: A tuple containing the unique set of tuples with the maximum second element
