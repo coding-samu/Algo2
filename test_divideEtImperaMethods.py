@@ -31,3 +31,22 @@ def test_maximum_sum_of_sublist():
     print("All test cases passed!")
 
 test_maximum_sum_of_sublist()
+
+def test_count_substring_that_starts_with_zero_and_ends_with_one():
+    print("Running test cases for count_substring_that_starts_with_zero_and_ends_with_one...")
+
+    # Test case 1: Simple string
+    S = "0011"
+    assert count_substring_that_starts_with_zero_and_ends_with_one(S,0,len(S)-1) == (2,2,4)
+
+    # Test case 2: Simple string
+    S = "0101"
+    assert count_substring_that_starts_with_zero_and_ends_with_one(S,0,len(S)-1) == (2,2,3)
+
+    # Test case 3: Simple string
+    S = "1100"
+    assert count_substring_that_starts_with_zero_and_ends_with_one(S,0,len(S)-1) == (2,2,0)
+
+    print("All test cases passed!")
+
+test_count_substring_that_starts_with_zero_and_ends_with_one()
