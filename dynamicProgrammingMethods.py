@@ -28,4 +28,12 @@ def riempiDisco(A,C):
 
 
 def sequence_without_3_consecutive_zeros(n):
-    pass
+    T = [0]*(n+1)
+    if n <= 1:
+        return n+1
+    T[0] = 1
+    T[1] = 2
+    T[2] = 4
+    for i in range (3,n+1):
+        T[i] = T[i-1] + T[i-2] + T[i-3]
+    return T[n]
