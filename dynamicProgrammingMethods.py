@@ -6,7 +6,7 @@ def fib(n):
         a,b = b,a+b
     return b
 
-def esI(A,C):
+def riempiDisco(A,C):
     n = len(A)
     T = [[0]*(C+1) for i in range(n+1)]
     for i in range(1,n+1):
@@ -25,3 +25,7 @@ def esI(A,C):
             valore -= A[i-1]
         i -= 1
     return T[n][C],sol
+
+
+def sequence_without_3_consecutive_zeros(n):
+    pass
