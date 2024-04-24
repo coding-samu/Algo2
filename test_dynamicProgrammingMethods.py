@@ -26,3 +26,18 @@ def test_riempiDisco():
     print("All test cases passed!")
 
 test_riempiDisco()
+
+def test_sequence_without_3_consecutive_zeros():
+    print("Running test cases for sequence_without_3_consecutive_zeros...")
+
+    # Test case 1: Simple values
+    n = 3
+    assert sequence_without_3_consecutive_zeros(n) == 7
+    
+    # Test case 2: Simple values
+    n = 4
+    assert sequence_without_3_consecutive_zeros(n) == 13
+    
+    print("All test cases passed!")
+
+test_sequence_without_3_consecutive_zeros()
