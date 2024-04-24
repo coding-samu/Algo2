@@ -37,3 +37,13 @@ def sequence_without_3_consecutive_zeros(n):
     for i in range (3,n+1):
         T[i] = T[i-1] + T[i-2] + T[i-3]
     return T[n]
+
+
+def count_combos_for_room_from_one_to_three_beds_for_n_people(n):
+    T = [0 for _ in range(n+1)]
+    T[0] = 0
+    T[1] = 1
+    T[2] = 2
+    for i in range(3,n+1):
+        T[i] = T[i-1] + (i-1)*T[i-2] + int(((i-1)*T[i-2])//2)
+    return T[n]

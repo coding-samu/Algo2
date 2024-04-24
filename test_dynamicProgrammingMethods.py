@@ -41,3 +41,18 @@ def test_sequence_without_3_consecutive_zeros():
     print("All test cases passed!")
 
 test_sequence_without_3_consecutive_zeros()
+
+def test_count_combos_for_room_from_one_to_three_beds_for_n_people():
+    print("Running test cases for count_combos_for_room_from_one_to_three_beds_for_n_people...")
+
+    # Test case 1: Simple values
+    n = 3
+    assert count_combos_for_room_from_one_to_three_beds_for_n_people(n) == 5
+    
+    # Test case 2: Simple values
+    n = 4
+    assert count_combos_for_room_from_one_to_three_beds_for_n_people(n) == 14
+    
+    print("All test cases passed!")
+
+test_count_combos_for_room_from_one_to_three_beds_for_n_people()
