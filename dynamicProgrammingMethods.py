@@ -47,3 +47,14 @@ def count_combos_for_room_from_one_to_three_beds_for_n_people(n):
     for i in range(3,n+1):
         T[i] = T[i-1] + (i-1)*T[i-2] + int(((i-1)*T[i-2])//2)
     return T[n]
+
+
+def max_sum_distance_two(A):
+    n = len(A)
+    T = [0 for _ in range(n+1)]
+    T[0] = A[0]
+    T[1] = max(A[0],A[1])
+    for i in range(2,n):
+        T[i] = max(T[i-1],T[i-3]+A[i])
+        print(T)
+    return T[n-1]

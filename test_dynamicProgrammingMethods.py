@@ -56,3 +56,18 @@ def test_count_combos_for_room_from_one_to_three_beds_for_n_people():
     print("All test cases passed!")
 
 test_count_combos_for_room_from_one_to_three_beds_for_n_people()
+
+def test_max_sum_distance_two():
+    print("Running test cases for max_sum_distance_two...")
+
+    # Test case 1: Simple list of elements
+    A = [1,10,3,2,4,1,7]
+    assert max_sum_distance_two(A) == 17
+    
+    # Test case 2: Simple list of elements
+    A = [5,4,10,6,8]
+    assert max_sum_distance_two(A) == 13
+    
+    print("All test cases passed!")
+
+test_max_sum_distance_two()
