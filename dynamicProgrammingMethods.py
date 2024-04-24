@@ -56,5 +56,4 @@ def max_sum_distance_two(A):
     T[1] = max(A[0],A[1])
     for i in range(2,n):
         T[i] = max(T[i-1],T[i-3]+A[i])
-        print(T)
     return T[n-1]
