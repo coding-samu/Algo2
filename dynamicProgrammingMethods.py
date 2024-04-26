@@ -57,3 +57,11 @@ def max_sum_distance_two(A):
     for i in range(2,n):
         T[i] = max(T[i-1],T[i-3]+A[i])
     return T[n-1]
+
+def piastrellamento_un_tipo(n):
+    m = max(3,n)
+    T = [0]*(n+1)
+    T[1], T[2] = 1, 2
+    for i in range(3,n+1):
+        T[i] = T[i-1] + T[i-2]
+    return T[n]
