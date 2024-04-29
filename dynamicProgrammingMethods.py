@@ -59,31 +59,18 @@ def max_sum_distance_two(A):
     return T[n-1]
 
 
-def piastrellamento_di_tipo_A(n):
+def tiling_one_type(n):
     T = [0]*(n+1)
     T[1], T[2] = 1, 2
     for i in range(3,n+1):
         T[i] = T[i-1] + T[i-2]
     return T[n]
 
-def piastrellamento_di_tipo_B(n):
+def tiling_two_types(n):
     T = [0]*(n+1)
-    if n < 4: return 0
-    T[4] = 2
-    for i in range(5,n+1):
-        T[i] = T[i-1]*2
+    T[0], T[1], T[2], T[3] = 1, 1, 2, 7
+    for i in range(4,n+1):
+        T[i] = T[i-1] + T[i-2] + 4*T[i-3] + 2*T[i-4]
     return T[n]
 
-def piastrellamento_di_due_tipi(n):
-    T = [0]*(n+1)
-    if n == 0: return 0
-    if n == 1: return 1
-    if n == 2: return 2
-    T[1], T[2] = 1, 2
-    for i in range(3,n+1):
-        T[i] = 2*T[i-1]
-
-    if n >= 4:
-        return piastrellamento_di_tipo_A(n) + piastrellamento_di_tipo_B(n) + 2*T[n-1] + 4*(T[n-4])
-    else:
-        return piastrellamento_di_tipo_A(n) + piastrellamento_di_tipo_B(n) + 2*T[n-1]
+print(tiling_two_types(9))
