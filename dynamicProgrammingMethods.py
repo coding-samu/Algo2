@@ -73,4 +73,24 @@ def tiling_two_types(n):
         T[i] = T[i-1] + T[i-2] + 4*T[i-3] + 2*T[i-4]
     return T[n]
 
-print(tiling_two_types(9))
+
+def  cardsGameTree(L):
+    def rec(L,parz,player,n):
+        if n == 1: 
+            parz[player] += L[0]
+            return parz
+        parzS = [parz[0],parz[1]]
+        parzD = [parz[0],parz[1]]
+        parzS[player] += L[0]
+        parzD[player] += L[-1]
+        S = rec(L[1:],parzS,1-player,n-1)
+        D = rec(L[:-1],parzD,1-player,n-1)
+        return S,D
+
+
+    n = len(L)-1
+    S = rec(L[1:],[L[0],0],1,n)
+    D = rec(L[:-1],[L[-1],0],1,n)
+    return S,D
+
+print(cardsGameTree([10,100,2,1]))
