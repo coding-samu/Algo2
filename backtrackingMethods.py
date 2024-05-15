@@ -10,7 +10,7 @@ def es(A,k):
             sol.append(A[i])
             esR(A,k,n,sol,i+1,sum+A[i], countSolutions)
             sol.pop()
-            esR(A,k,n,sol,i+1,sum, countSolutions)
+        esR(A,k,n,sol,i+1,sum, countSolutions)
     
     countSolutions = [0]
     esR(A,k,len(A),[],0,0, countSolutions)
