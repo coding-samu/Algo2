@@ -45,95 +45,33 @@ def esModificato(A,k):
     print(countSolutions)
     print(nodo)
 
+#A = [61,20,1,33,20,2,4,1,1,33]
+#k = 70
+#es(A,k)
+#esModificato(A,k)
 
-A = [61,20,1,33,20,2,4,1,1,33]
-k = 70
-es(A,k)
-esModificato(A,k)
-
-def ricorsiva(n,scacchiera,sol,x=0,y=0,i=0):
-    if i == n*n-1:
-        print(sol)
-        return True
-    px = x+2
-    py = y+1
-    if px<n and py<n and scacchiera[py][px]==0:
-        scacchiera[py][px]=1
-        sol.append((px,py))
-        if ricorsiva(n,scacchiera,sol,px,py,i+1):
-            return True
-        sol.pop()
-        scacchiera[py][px]=0
-    px = x+2
-    py = y-1
-    if px<n and py>=0 and scacchiera[py][px]==0:
-        scacchiera[py][px]=1
-        sol.append((px,py))
-        if ricorsiva(n,scacchiera,sol,px,py,i+1):
-            return True
-        sol.pop()
-        scacchiera[py][px]=0
-    px = x-2
-    py = y+1
-    if px>=0 and py<n and scacchiera[py][px]==0:
-        scacchiera[py][px]=1
-        sol.append((px,py))
-        if ricorsiva(n,scacchiera,sol,px,py,i+1):
-            return True
-        sol.pop()
-        scacchiera[py][px]=0
-    px = x-2
-    py = y-1
-    if px>=0 and py>=0 and scacchiera[py][px]==0:
-        scacchiera[py][px]=1
-        sol.append((px,py))
-        if ricorsiva(n,scacchiera,sol,px,py,i+1):
-            return True
-        sol.pop()
-        scacchiera[py][px]=0
-    px = x+1
-    py = y+2
-    if px<n and py<n and scacchiera[py][px]==0:
-        scacchiera[py][px]=1
-        sol.append((px,py))
-        if ricorsiva(n,scacchiera,sol,px,py,i+1):
-            return True
-        sol.pop()
-        scacchiera[py][px]=0
-    px = x+1
-    py = y-2
-    if px<n and py>=0 and scacchiera[py][px]==0:
-        scacchiera[py][px]=1
-        sol.append((px,py))
-        if ricorsiva(n,scacchiera,sol,px,py,i+1):
-            return True
-        sol.pop()
-        scacchiera[py][px]=0
-    px = x-1
-    py = y+2
-    if px>=0 and py<n and scacchiera[py][px]==0:
-        scacchiera[py][px]=1
-        sol.append((px,py))
-        if ricorsiva(n,scacchiera,sol,px,py,i+1):
-            return True
-        sol.pop()
-        scacchiera[py][px]=0
-    px = x-1
-    py = y-2
-    if px>=0 and py>=0 and scacchiera[py][px]==0:
-        scacchiera[py][px]=1
-        sol.append((px,py))
-        if ricorsiva(n,scacchiera,sol,px,py,i+1):
-            return True
-        sol.pop()
-        scacchiera[py][px]=0
-    return False
-
-def cerca_percorso2(n):
+def cerca_percorso(n):
     scacchiera = [[0 for _ in range(n)] for _ in range(n)]
     scacchiera[0][0]=1
     sol = []
-    return ricorsiva(n,scacchiera,sol)
+    combinazioni = [(2,1),(2,-1),(-2,1),(-2,-1),(1,2),(-1,2),(1,-2),(-1,-2)]
+    def ricorsiva(n,combinazioni,scacchiera,sol,x=0,y=0,i=0):
+        if i == n*n-1:
+            print(sol, len(sol))
+            return True
+        for px,py in combinazioni:
+            px += x
+            py += y
+            if px >= 0 and px < n and py >= 0 and py < n and scacchiera[py][px] == 0:
+                scacchiera[py][px]=1
+                sol.append((px,py))
+                if ricorsiva(n,combinazioni,scacchiera,sol,px,py,i+1):
+                    return True
+                sol.pop()
+                scacchiera[py][px]=0
+
+        return False
+    return ricorsiva(n,combinazioni,scacchiera,sol)
 
 if __name__ == '__main__':
-    print(cerca_percorso2(8))
+    print(cerca_percorso(3))
