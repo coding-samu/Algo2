@@ -50,11 +50,24 @@ def esModificato(A,k):
 #es(A,k)
 #esModificato(A,k)
 
+import sys
+
+sys.setrecursionlimit(11000)
+
 def cerca_percorso(n):
+
+    # Euristica di Warnsdorff
+    def euristica(mossa, scacchiera):
+        x, y = mossa
+        combinazioni = [(2,1),(2,-1),(-2,1),(-2,-1),(1,2),(-1,2),(1,-2),(-1,-2)]
+        mosse_valide = [(x+px, y+py) for px, py in combinazioni if 0 <= x+px < n and 0 <= y+py < n and scacchiera[y+py][x+px] == 0]
+        return len(mosse_valide)
+
     def ricorsiva(n,combinazioni,scacchiera,sol,x=0,y=0,i=0):
         if i == n*n-1:
             print(sol, len(sol))
             return True
+        combinazioni.sort(key=lambda mossa: euristica((x+mossa[0], y+mossa[1]), scacchiera))  # Ordina le mosse
         for px,py in combinazioni:
             px += x
             py += y
@@ -74,4 +87,4 @@ def cerca_percorso(n):
     return ricorsiva(n,combinazioni,scacchiera,sol)
 
 if __name__ == '__main__':
-    print(cerca_percorso(5))
+    print(cerca_percorso(100))
