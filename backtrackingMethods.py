@@ -56,7 +56,6 @@ sys.setrecursionlimit(11000)
 
 def cerca_percorso(n):
 
-    # Euristica di Warnsdorff
     def euristica(mossa, scacchiera):
         x, y = mossa
         combinazioni = [(2,1),(2,-1),(-2,1),(-2,-1),(1,2),(-1,2),(1,-2),(-1,-2)]
@@ -87,4 +86,4 @@ def cerca_percorso(n):
     return ricorsiva(n,combinazioni,scacchiera,sol)
 
 if __name__ == '__main__':
-    print(cerca_percorso(100))
+    print(cerca_percorso(14))
