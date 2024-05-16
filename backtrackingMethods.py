@@ -74,4 +74,4 @@ def cerca_percorso(n):
     return ricorsiva(n,combinazioni,scacchiera,sol)
 
 if __name__ == '__main__':
-    print(cerca_percorso(3))
+    print(cerca_percorso(8))
