@@ -1,0 +1,475 @@
+Test metodo per i = 2
+6.699562072753906e-05 secondi
+Trovato per i = 2 False
+
+Test metodo per i = 3
+0.0021877288818359375 secondi
+Trovato per i = 3 False
+
+Test metodo per i = 4
+0.04170727729797363 secondi
+Trovato per i = 4 False
+
+Test metodo per i = 5
+0.0012176036834716797 secondi
+Trovato per i = 5 True
+
+Test metodo per i = 6
+0.0017116069793701172 secondi
+Trovato per i = 6 True
+
+Test metodo per i = 7
+0.5063025951385498 secondi
+Trovato per i = 7 True
+
+Test metodo per i = 8
+0.003537893295288086 secondi
+Trovato per i = 8 True
+
+Test metodo per i = 9
+0.0042345523834228516 secondi
+Trovato per i = 9 True
+
+Test metodo per i = 10
+0.010453939437866211 secondi
+Trovato per i = 10 True
+
+Test metodo per i = 11
+0.006783008575439453 secondi
+Trovato per i = 11 True
+
+Test metodo per i = 12
+0.016122817993164062 secondi
+Trovato per i = 12 True
+
+Test metodo per i = 13
+0.010550260543823242 secondi
+Trovato per i = 13 True
+
+Test metodo per i = 14
+0.009753942489624023 secondi
+Trovato per i = 14 True
+
+Test metodo per i = 15
+0.011432170867919922 secondi
+Trovato per i = 15 True
+
+Test metodo per i = 16
+0.01411747932434082 secondi
+Trovato per i = 16 True
+
+Test metodo per i = 17
+0.015273809432983398 secondi
+Trovato per i = 17 True
+
+Test metodo per i = 18
+0.019396066665649414 secondi
+Trovato per i = 18 True
+
+Test metodo per i = 19
+0.02130603790283203 secondi
+Trovato per i = 19 True
+
+Test metodo per i = 20
+0.023560523986816406 secondi
+Trovato per i = 20 True
+
+Test metodo per i = 21
+0.02578425407409668 secondi
+Trovato per i = 21 True
+
+Test metodo per i = 22
+0.025220632553100586 secondi
+Trovato per i = 22 True
+
+Test metodo per i = 23
+0.028020143508911133 secondi
+Trovato per i = 23 True
+
+Test metodo per i = 24
+0.032126665115356445 secondi
+Trovato per i = 24 True
+
+Test metodo per i = 25
+0.037001609802246094 secondi
+Trovato per i = 25 True
+
+Test metodo per i = 26
+0.042520999908447266 secondi
+Trovato per i = 26 True
+
+Test metodo per i = 27
+0.04746127128601074 secondi
+Trovato per i = 27 True
+
+Test metodo per i = 29
+0.05327749252319336 secondi
+Trovato per i = 29 True
+
+Test metodo per i = 30
+0.05968165397644043 secondi
+Trovato per i = 30 True
+
+Test metodo per i = 31
+0.06933116912841797 secondi
+Trovato per i = 31 True
+
+Test metodo per i = 32
+0.08614587783813477 secondi
+Trovato per i = 32 True
+
+Test metodo per i = 33
+0.07644224166870117 secondi
+Trovato per i = 33 True
+
+Test metodo per i = 34
+0.06476187705993652 secondi
+Trovato per i = 34 True
+
+Test metodo per i = 35
+0.06713581085205078 secondi
+Trovato per i = 35 True
+
+Test metodo per i = 36
+0.07003164291381836 secondi
+Trovato per i = 36 True
+
+Test metodo per i = 37
+0.07529997825622559 secondi
+Trovato per i = 37 True
+
+Test metodo per i = 38
+0.07906293869018555 secondi
+Trovato per i = 38 True
+
+Test metodo per i = 39
+0.10654520988464355 secondi
+Trovato per i = 39 True
+
+Test metodo per i = 40
+0.08884215354919434 secondi
+Trovato per i = 40 True
+
+Test metodo per i = 41
+0.18525147438049316 secondi
+Trovato per i = 41 True
+
+Test metodo per i = 42
+0.2524533271789551 secondi
+Trovato per i = 42 True
+
+Test metodo per i = 43
+0.12368583679199219 secondi
+Trovato per i = 43 True
+
+Test metodo per i = 44
+0.10702061653137207 secondi
+Trovato per i = 44 True
+
+Test metodo per i = 45
+0.11403727531433105 secondi
+Trovato per i = 45 True
+
+Test metodo per i = 46
+0.13185906410217285 secondi
+Trovato per i = 46 True
+
+Test metodo per i = 47
+0.12356686592102051 secondi
+Trovato per i = 47 True
+
+Test metodo per i = 48
+0.12339401245117188 secondi
+Trovato per i = 48 True
+
+Test metodo per i = 49
+0.15042781829833984 secondi
+Trovato per i = 49 True
+
+Test metodo per i = 50
+0.1587517261505127 secondi
+Trovato per i = 50 True
+
+Test metodo per i = 51
+0.16524434089660645 secondi
+Trovato per i = 51 True
+
+Test metodo per i = 52
+0.15628433227539062 secondi
+Trovato per i = 52 True
+
+Test metodo per i = 53
+0.1663801670074463 secondi
+Trovato per i = 53 True
+
+Test metodo per i = 54
+0.17057514190673828 secondi
+Trovato per i = 54 True
+
+Test metodo per i = 55
+0.17664241790771484 secondi
+Trovato per i = 55 True
+
+Test metodo per i = 56
+0.20279335975646973 secondi
+Trovato per i = 56 True
+
+Test metodo per i = 57
+0.18921446800231934 secondi
+Trovato per i = 57 True
+
+Test metodo per i = 58
+0.19325566291809082 secondi
+Trovato per i = 58 True
+
+Test metodo per i = 60
+0.20753979682922363 secondi
+Trovato per i = 60 True
+
+Test metodo per i = 61
+0.21507716178894043 secondi
+Trovato per i = 61 True
+
+Test metodo per i = 62
+0.24296307563781738 secondi
+Trovato per i = 62 True
+
+Test metodo per i = 63
+0.2568802833557129 secondi
+Trovato per i = 63 True
+
+Test metodo per i = 64
+0.23872661590576172 secondi
+Trovato per i = 64 True
+
+Test metodo per i = 66
+0.2364509105682373 secondi
+Trovato per i = 66 True
+
+Test metodo per i = 67
+0.2642242908477783 secondi
+Trovato per i = 67 True
+
+Test metodo per i = 68
+0.25026679039001465 secondi
+Trovato per i = 68 True
+
+Test metodo per i = 69
+0.25937747955322266 secondi
+Trovato per i = 69 True
+
+Test metodo per i = 70
+0.2900657653808594 secondi
+Trovato per i = 70 True
+
+Test metodo per i = 71
+0.27486419677734375 secondi
+Trovato per i = 71 True
+
+Test metodo per i = 72
+0.3086400032043457 secondi
+Trovato per i = 72 True
+
+Test metodo per i = 73
+0.2934260368347168 secondi
+Trovato per i = 73 True
+
+Test metodo per i = 74
+0.315777063369751 secondi
+Trovato per i = 74 True
+
+Test metodo per i = 75
+0.30446338653564453 secondi
+Trovato per i = 75 True
+
+Test metodo per i = 76
+0.3145120143890381 secondi
+Trovato per i = 76 True
+
+Test metodo per i = 77
+0.3394439220428467 secondi
+Trovato per i = 77 True
+
+Test metodo per i = 78
+0.3431248664855957 secondi
+Trovato per i = 78 True
+
+Test metodo per i = 79
+0.4191007614135742 secondi
+Trovato per i = 79 True
+
+Test metodo per i = 80
+0.3706238269805908 secondi
+Trovato per i = 80 True
+
+Test metodo per i = 81
+0.3762786388397217 secondi
+Trovato per i = 81 True
+
+Test metodo per i = 83
+0.41839098930358887 secondi
+Trovato per i = 83 True
+
+Test metodo per i = 84
+0.40640830993652344 secondi
+Trovato per i = 84 True
+
+Test metodo per i = 85
+0.4407963752746582 secondi
+Trovato per i = 85 True
+
+Test metodo per i = 86
+0.4045989513397217 secondi
+Trovato per i = 86 True
+
+Test metodo per i = 87
+0.48783016204833984 secondi
+Trovato per i = 87 True
+
+Test metodo per i = 88
+0.4249539375305176 secondi
+Trovato per i = 88 True
+
+Test metodo per i = 89
+0.45023012161254883 secondi
+Trovato per i = 89 True
+
+Test metodo per i = 91
+0.46572136878967285 secondi
+Trovato per i = 91 True
+
+Test metodo per i = 92
+0.48459935188293457 secondi
+Trovato per i = 92 True
+
+Test metodo per i = 94
+0.4813714027404785 secondi
+Trovato per i = 94 True
+
+Test metodo per i = 95
+0.5263571739196777 secondi
+Trovato per i = 95 True
+
+Test metodo per i = 96
+0.5257794857025146 secondi
+Trovato per i = 96 True
+
+Test metodo per i = 97
+0.5211808681488037 secondi
+Trovato per i = 97 True
+
+Test metodo per i = 98
+0.5212500095367432 secondi
+Trovato per i = 98 True
+
+Test metodo per i = 99
+0.5676407814025879 secondi
+Trovato per i = 99 True
+
+Test metodo per i = 100
+0.5847272872924805 secondi
+Trovato per i = 100 True
+
+Test metodo per i = 101
+0.5494241714477539 secondi
+Trovato per i = 101 True
+
+Test metodo per i = 103
+0.5955288410186768 secondi
+Trovato per i = 103 True
+
+Test metodo per i = 104
+0.6077945232391357 secondi
+Trovato per i = 104 True
+
+Test metodo per i = 105
+0.6114811897277832 secondi
+Trovato per i = 105 True
+
+Test metodo per i = 106
+0.6561672687530518 secondi
+Trovato per i = 106 True
+
+Test metodo per i = 107
+0.6451663970947266 secondi
+Trovato per i = 107 True
+
+Test metodo per i = 108
+0.6484503746032715 secondi
+Trovato per i = 108 True
+
+Test metodo per i = 109
+0.7005198001861572 secondi
+Trovato per i = 109 True
+
+Test metodo per i = 110
+0.6829712390899658 secondi
+Trovato per i = 110 True
+
+Test metodo per i = 111
+0.7302851676940918 secondi
+Trovato per i = 111 True
+
+Test metodo per i = 112
+0.7324457168579102 secondi
+Trovato per i = 112 True
+
+Test metodo per i = 113
+0.6997385025024414 secondi
+Trovato per i = 113 True
+
+Test metodo per i = 114
+0.7264540195465088 secondi
+Trovato per i = 114 True
+
+Test metodo per i = 115
+0.7694764137268066 secondi
+Trovato per i = 115 True
+
+Test metodo per i = 116
+0.7616927623748779 secondi
+Trovato per i = 116 True
+
+Test metodo per i = 118
+0.8114297389984131 secondi
+Trovato per i = 118 True
+
+Test metodo per i = 119
+0.857841968536377 secondi
+Trovato per i = 119 True
+
+Test metodo per i = 120
+0.8316183090209961 secondi
+Trovato per i = 120 True
+
+Test metodo per i = 122
+0.8748416900634766 secondi
+Trovato per i = 122 True
+
+Test metodo per i = 124
+0.9551255702972412 secondi
+Trovato per i = 124 True
+
+Test metodo per i = 126
+0.8980920314788818 secondi
+Trovato per i = 126 True
+
+Test metodo per i = 127
+0.9068596363067627 secondi
+Trovato per i = 127 True
+
+Test metodo per i = 128
+0.8945224285125732 secondi
+Trovato per i = 128 True
+
+Test metodo per i = 129
+1.0247852802276611 secondi
+Trovato per i = 129 True
+
+Test metodo per i = 130
+0.9478921890258789 secondi
+Trovato per i = 130 True
+
+Test metodo per i = 131
+1.0045969486236572 secondi
+Trovato per i = 131 True
