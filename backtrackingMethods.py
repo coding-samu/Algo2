@@ -51,10 +51,6 @@ def esModificato(A,k):
 #esModificato(A,k)
 
 def cerca_percorso(n):
-    scacchiera = [[0 for _ in range(n)] for _ in range(n)]
-    scacchiera[0][0]=1
-    sol = []
-    combinazioni = [(2,1),(2,-1),(-2,1),(-2,-1),(1,2),(-1,2),(1,-2),(-1,-2)]
     def ricorsiva(n,combinazioni,scacchiera,sol,x=0,y=0,i=0):
         if i == n*n-1:
             print(sol, len(sol))
@@ -69,9 +65,13 @@ def cerca_percorso(n):
                     return True
                 sol.pop()
                 scacchiera[py][px]=0
-
         return False
+    
+    scacchiera = [[0 for _ in range(n)] for _ in range(n)]
+    scacchiera[0][0] = 1
+    sol = [(0,0)]
+    combinazioni = [(2,1),(2,-1),(-2,1),(-2,-1),(1,2),(-1,2),(1,-2),(-1,-2)]
     return ricorsiva(n,combinazioni,scacchiera,sol)
 
 if __name__ == '__main__':
-    print(cerca_percorso(8))
+    print(cerca_percorso(5))
