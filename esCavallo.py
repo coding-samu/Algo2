@@ -8,7 +8,9 @@ def cerca_percorso(n):
     def euristica(mossa, scacchiera):
         x, y = mossa
         combinazioni = [(2,1),(2,-1),(-2,1),(-2,-1),(1,2),(-1,2),(1,-2),(-1,-2)]
+        # Calcola le mosse valide
         mosse_valide = [(x+px, y+py) for px, py in combinazioni if 0 <= x+px < n and 0 <= y+py < n and scacchiera[y+py][x+px] == 0]
+        # Calcola il punteggio della mossa attribuendo un punteggio in base alla distanza dal centro
         score = len(mosse_valide)
         distanza_centro = abs(n/2 - x) + abs(n/2 - y)
         score -= distanza_centro / n
@@ -51,7 +53,6 @@ def test_func(i):
     return t,M
 
 if __name__ == '__main__':
-
     for i in range (2,26):
         t,M = test_func(i)
         if t:
