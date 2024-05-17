@@ -89,24 +89,9 @@ def cerca_percorso(n):
     t = ricorsiva(n,combinazioni,scacchiera,sol)
     return sol,t
 
-def print_matrix(M):
-    for riga in M:
-        for colonna in riga:
-            print(colonna,end="\t")
-        print()
-
-
 if __name__ == '__main__':
-    n = 132
-    # M = [[0 for _ in range(n)] for _ in range(n)]
-    # soluzione = cerca_percorso(n)
-    # for e in soluzione:
-    #     M[e[1]][e[0]] = e[2]
-    # print_matrix(M)
 
-
-
-    for i in range (2,26):
+    for i in range (7,8):
         if i == 28 or i == 59 or i == 65 or i == 82 or i == 90 or i == 93 or i == 102 or i == 117 or i == 121 or i == 123 or i == 125: continue
         print("Test metodo per i = " + str(i))
         start = time.time()
