@@ -5,7 +5,6 @@ from utilities import salva_matrice_come_immagine, salva_matrice_come_json
 sys.setrecursionlimit(3000000)
 
 def cerca_percorso(n):
-    iterazioni = 0
     def euristica(mossa, scacchiera):
         x, y = mossa
         combinazioni = [(2,1),(2,-1),(-2,1),(-2,-1),(1,2),(-1,2),(1,-2),(-1,-2)]
@@ -36,12 +35,12 @@ def cerca_percorso(n):
     sol = [(0,0,0)]
     combinazioni = [(2,1),(2,-1),(-2,1),(-2,-1),(1,2),(-1,2),(1,-2),(-1,-2)]
     t = ricorsiva(n,combinazioni,scacchiera,sol)
-    return sol,t,iterazioni
+    return sol,t
 
 def test_func(i):
     print("Test metodo per i = " + str(i))
     start = time.time()
-    soluzione,t,iterazioni = cerca_percorso(i)
+    soluzione,t = cerca_percorso(i)
     end = time.time()
     print(end-start)
     print("Trovato per i = " + str(i) + " " + str(t))
@@ -53,7 +52,7 @@ def test_func(i):
 
 if __name__ == '__main__':
 
-    for i in range (2,301):
+    for i in range (2,26):
         t,M = test_func(i)
         if t:
             if i < 26:
