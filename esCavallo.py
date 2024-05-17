@@ -8,9 +8,9 @@ def cerca_percorso(n):
     def euristica(mossa, scacchiera):
         x, y = mossa
         combinazioni = [(2,1),(2,-1),(-2,1),(-2,-1),(1,2),(-1,2),(1,-2),(-1,-2)]
-        # Calcola le mosse valide
+        # Calcola le mosse valide (euristica di Warnsdorf, preferisce le mosse con il minor numero di mosse possibili)
         mosse_valide = [(x+px, y+py) for px, py in combinazioni if 0 <= x+px < n and 0 <= y+py < n and scacchiera[y+py][x+px] == 0]
-        # Calcola il punteggio della mossa attribuendo un punteggio in base alla distanza dal centro
+        # Calcola il punteggio della mossa attribuendo un punteggio in base alla distanza dal centro (preferisce le mosse vicine al centro)
         score = len(mosse_valide)
         distanza_centro = abs(n/2 - x) + abs(n/2 - y)
         score -= distanza_centro / n
