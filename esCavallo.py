@@ -74,21 +74,24 @@ def salva_matrice_come_immagine(M):
 
     plt.close()
 
+def test_func(i):
+    print("Test metodo per i = " + str(i))
+    start = time.time()
+    soluzione,t,iterazioni = cerca_percorso(i)
+    end = time.time()
+    print(end-start)
+    print("Trovato per i = " + str(i) + " " + str(t))
+    M = [[-1 for _ in range(i)] for _ in range(i)]
+    for e in soluzione:
+        M[e[1]][e[0]] = e[2]
+    vm = verifica_matrice(M)
+    print("Matrice verificata: " + str(vm))
+    print()
+    return t,M
+
 if __name__ == '__main__':
 
     for i in range (2,101):
-        print("Test metodo per i = " + str(i))
-        start = time.time()
-        soluzione,t,iterazioni = cerca_percorso(i)
-        end = time.time()
-        print(end-start)
-        print("Trovato per i = " + str(i) + " " + str(t))
-        M = [[-1 for _ in range(i)] for _ in range(i)]
-        for e in soluzione:
-            M[e[1]][e[0]] = e[2]
-        vm = verifica_matrice(M)
-        print("Matrice verificata: " + str(vm))
-        print()
-        
-        if t and i < 10:
+        t,M = test_func(i)
+        if t and i < 26:
             salva_matrice_come_immagine(M)
