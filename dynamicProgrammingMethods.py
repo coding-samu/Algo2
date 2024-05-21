@@ -93,4 +93,22 @@ def  cardsGameTree(L):
     D = rec(L[:-1],[L[-1],0],1,n)
     return S,D
 
-print(cardsGameTree([10,100,2,1]))
+def riempiDisco2(A,c):
+    n = len(A)
+    T = [[0]*(c+1) for i in range(n+1)]
+    for i in range(1,n+1):
+        for j in range(c+1):
+            if j < A[i-1]:
+                T[i][j] = T[i-1][j]
+            else:
+                T[i][j] = max(T[i-1][j],T[i-1][j-A[i-1]]+A[i-1])
+            stampaMatrice(T)
+            print()
+    return T[n][c]
+
+
+def stampaMatrice(M):
+    for i in range(len(M)):
+        print(M[i])
+
+print(riempiDisco2([2,5,1,3],6))
