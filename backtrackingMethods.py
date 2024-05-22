@@ -113,5 +113,23 @@ def numeroTelefonico(n):
 
     return sum(T[n])
 
+
+def kZeriConsecutivi(n,k):
+    def esR(n,k,i,sol,z,zericons):
+        if n == i:
+            print(sol)
+            return
+        if z == 0: zericons = True
+        if zericons or n-i>k:
+            sol.append(1)
+            esR(n,k,i+1,sol,k,zericons)
+            sol.pop()
+        sol.append(0)
+        esR(n,k,i+1,sol,z-1,zericons)
+        sol.pop()
+    sol = []
+    esR(n,k,0,sol,k,False)
+
+
 if __name__ == '__main__':
-    print(numeroTelefonico(10))
+    print(kZeriConsecutivi(4,2))
