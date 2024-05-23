@@ -157,5 +157,24 @@ def stringheConDispari(n):
     sol = []
     esR(n,0,0,sol)
 
-if __name__ == '__main__':
-    print(stringheConDispari(2))
+def stampaStringheTernarieLungheNConDueBCheSeguonoUnaA(n):
+    count = 0
+    def esR(n,i,sol):
+        nonlocal count
+        if i == n:
+            count += 1
+            print(''.join(sol))
+            return
+        for e in ['a','b','c']:
+            if e == 'a':
+                if n-i>=3:
+                    sol.append('abb')
+                    esR(n,i+3,sol)
+                    sol.pop()
+            else:
+                sol.append(e)
+                esR(n,i+1,sol)
+                sol.pop()
+    sol = []
+    esR(n,0,sol)
+    return count
