@@ -131,5 +131,31 @@ def kZeriConsecutivi(n,k):
     esR(n,k,0,sol,k,False)
 
 
+def stringheConDispari(n):
+    def esR(n,nd,i,sol):
+        if i == 2*n:
+            print(sol)
+            return
+        elif i < n:
+            for e in [1,2,3]:
+                sol.append(e)
+                if e % 2 == 1:
+                    esR(n,nd+1,i+1,sol)
+                else:
+                    esR(n,nd,i+1,sol)
+                sol.pop()
+        elif i < 2*n:
+            for e in [1,2,3]:
+                if e % 2 == 0 and 2*n - i > nd:
+                    sol.append(e)
+                    esR(n,nd,i+1,sol)
+                    sol.pop()
+                elif e % 2 == 1 and nd > 0:
+                        sol.append(e)
+                        esR(n,nd-1,i+1,sol)
+                        sol.pop()
+    sol = []
+    esR(n,0,0,sol)
+
 if __name__ == '__main__':
-    print(kZeriConsecutivi(4,2))
+    print(stringheConDispari(2))
