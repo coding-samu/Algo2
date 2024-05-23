@@ -106,9 +106,20 @@ def riempiDisco2(A,c):
             print()
     return T[n][c]
 
+def componiStringa(I,s):
+    T = [0 for _ in range(len(s))]
+    if s[0] in I:
+        T[0] = 1
+    for i in range(1,len(s)):
+        if s[i] in I:
+            T[i] += T[i-1]
+        if s[i-1:i+1] in I:
+            if i == 1:
+                T[i] += 1
+            else:
+                T[i] += T[i-2]
+    return T
 
 def stampaMatrice(M):
     for i in range(len(M)):
         print(M[i])
-
-print(riempiDisco2([2,5,1,3],6))
