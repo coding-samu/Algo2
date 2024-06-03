@@ -1,0 +1,28 @@
+Algoritmi 2 - Grafi
+Grafi:
+Componenti fortemente connesse
+Grafi diretti
+Grafi non diretti
+Sort topologico
+Grafo complementare
+Grafo trasposto
+Ponti
+Grafo denso
+Grafo sparso
+Albero
+Grafo planare
+Pozzo
+Pozzo universale
+
+Algoritmi:
+Visita DFS (in altezza) -> O(n+m)
+
+Visita BFS (in ampiezza, cammini minimi) -> O(n+m)
+
+Algoritmo di Dijkstra (cammini minimi per grafi pesati con pesi positivi) -> O((n+m)log(n))
+
+Union Find (struttura dati) -> O(log(n))
+
+Kruskal (albero di copertura di costo minimo) -> O(m*log(n))
+
+
