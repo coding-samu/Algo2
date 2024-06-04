@@ -13,6 +13,8 @@ Albero
 Grafo planare
 Pozzo
 Pozzo universale
+Colorazione dei grafi
+Cicli
 
 Algoritmi:
 Visita DFS (in altezza) -> O(n+m)
